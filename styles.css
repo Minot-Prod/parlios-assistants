@@ -254,3 +254,55 @@
     font-size: 0.8rem;
     opacity: 0.75;
 }
+.hero-parlios {
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0 90px;
+}
+
+.hero-parlios-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(120, 70, 255, 0.45), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(76, 201, 240, 0.40), transparent 55%),
+    url('/parlios/ui/backgrounds/wave-01.png') center/cover no-repeat,
+    #050816;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.hero-parlios-inner {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-parlios-main {
+  width: 100%;
+}
+
+.hero-parlios-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.hero-parlios-logo img {
+  max-width: 220px;
+  height: auto;
+  filter: drop-shadow(0 12px 30px rgba(0,0,0,0.7));
+}
+
+/* Optionnel : légère recentrage du contenu pour éviter que ça colle à gauche */
+.hero-parlios-copy {
+  text-align: center;
+}
+
+.hero-parlios-panel {
+  position: relative;
+}
