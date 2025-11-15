@@ -217,9 +217,177 @@ a { color: inherit; text-decoration: none; }
   color: #0b0c0e;
 }
 </style>
+<style>
+/* -------- MOBILE COLLAPSE (APP STYLE) -------- */
+@media (max-width: 640px) {
+  .navbar-glass { display: none; }
+
+  .mobile-fab {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    display: grid;
+    place-items: center;
+    color: #0b0c0e;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+
+  .mobile-menu-panel {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 90px 20px 40px;
+    z-index: 9998;
+  }
+
+  .mobile-menu-panel.active { display: flex; }
+
+  .mobile-menu-links {
+    background: rgba(255,255,255,0.06);
+    border-radius: 18px;
+    padding: 32px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .mobile-menu-links a {
+    font-size: 18px;
+    color: var(--text);
+    font-weight: 500;
+  }
+}
+</style>
+<style>
+/* -------- NAVBAR GLASS ARC -------- */
+.navbar-glass {
+  position: fixed;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 980px;
+  padding: 14px 22px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+  box-shadow:
+    0 0 20px rgba(139,92,246,0.15),
+    inset 0 0 10px rgba(255,255,255,0.04);
+}
+
+.navbar-glass .left {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.navbar-glass a {
+  color: var(--text);
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.navbar-glass a:hover {
+  opacity: 1;
+}
+</style>
+<style>
+/* -------- MOBILE COLLAPSE (APP STYLE) -------- */
+@media (max-width: 640px) {
+  .navbar-glass { display: none; }
+
+  .mobile-fab {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    display: grid;
+    place-items: center;
+    color: #0b0c0e;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+
+  .mobile-menu-panel {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 90px 20px 40px;
+    z-index: 9998;
+  }
+
+  .mobile-menu-panel.active { display: flex; }
+
+  .mobile-menu-links {
+    background: rgba(255,255,255,0.06);
+    border-radius: 18px;
+    padding: 32px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .mobile-menu-links a {
+    font-size: 18px;
+    color: var(--text);
+    font-weight: 500;
+  }
+}
+</style>
 </head>
 
 <body>
+<nav class="navbar-glass">
+  <div class="left">
+    <a href="#catalogue">Catalogue</a>
+    <a href="#how">Fonctionnement</a>
+    <a href="#about">À propos</a>
+  </div>
+</nav>
+<div class=\"mobile-fab\" id=\"fabMenu\">☰</div>
+
+<div class=\"mobile-menu-panel\" id=\"mobilePanel\">
+  <div class=\"mobile-menu-links\">
+    <a href=\"#catalogue\">Catalogue</a>
+    <a href=\"#how\">Fonctionnement</a>
+    <a href=\"#about\">À propos</a>
+  </div>
+</div>
   <div class="container"><nav class="navbar-glass">
   <div class="nav-logo">
     <div class=""badge"">P</div>
@@ -232,6 +400,15 @@ a { color: inherit; text-decoration: none; }
   </div>
   <a class=""nav-cta"" href=""#catalogue"">Commencer</a>
 </nav>
+<div class=\"mobile-fab\" id=\"fabMenu\">☰</div>
+
+<div class=\"mobile-menu-panel\" id=\"mobilePanel\">
+  <div class=\"mobile-menu-links\">
+    <a href=\"#catalogue\">Catalogue</a>
+    <a href=\"#how\">Fonctionnement</a>
+    <a href=\"#about\">À propos</a>
+  </div>
+</div>
     
     <!-- Header -->
     <div class="header">
@@ -373,6 +550,29 @@ a { color: inherit; text-decoration: none; }
     <div class="footer">Prototype statique â€” version publique (utilisation uniquement)</div>
 
   </div>
+
+<script>
+  const fab = document.getElementById("fabMenu");
+  const panel = document.getElementById("mobilePanel");
+
+  let open = false;
+
+  fab.addEventListener("click", () => {
+    open = !open;
+    panel.classList.toggle("active");
+    fab.innerHTML = open ? "✕" : "☰";
+    fab.style.transform = open ? "scale(1.05)" : "scale(1)";
+  });
+
+  panel.addEventListener("click", (e) => {
+    if (e.target === panel) {
+      panel.classList.remove("active");
+      open = false;
+      fab.innerHTML = "☰";
+      fab.style.transform = "scale(1)";
+    }
+  });
+</script>
 </body>
 </html>
 
@@ -434,5 +634,7 @@ a { color: inherit; text-decoration: none; }
   0% { transform: translateX(0px); opacity: 0.85; }
   100% { transform: translateX(-40px); opacity: 1; }
 }
+
+
 
 
