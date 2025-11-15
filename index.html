@@ -1,172 +1,510 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
+  <title>Parlios – Assistants IA business</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Parlios · Outils IA gratuits</title>
+  <meta name="description" content="Parlios : une collection d’assistants IA prêts à l’emploi pour vendre, marketer et optimiser ton business sans te perdre dans la technique." />
+  <link rel="icon" type="image/png" href="/assets/brand/parlios-logo.png" />
   <style>
-:root {
-  --bg: #0b0c0e;
-  --card:#111318;
-  --text:#e6e7ea;
-  --muted:#b7bbc3;
-  --accent:#8b5cf6;
-  --accent-2:#22c55e;
-  --border:#1b1f27;
-}
-* { box-sizing: border-box; }
-html, body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
-a { color: inherit; text-decoration: none; }
-.container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 80px; }
-.header { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom: 28px; }
-.logo { display:flex; align-items:center; gap:12px; }
-.logo-badge { width:32px; height:32px; border-radius:8px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); display:grid; place-items:center; color:white; font-weight:800; }
-.title { font-size: 20px; font-weight: 700; letter-spacing: .3px; }
-.hero { background: linear-gradient(180deg, rgba(139,92,246,.12), rgba(34,197,94,.10) 70%, transparent 100%); border: 1px solid var(--border); border-radius: 14px; padding: 20px 18px; margin-bottom: 24px; }
-.hero h1 { font-size: 26px; margin: 4px 0 8px 0; }
-.hero p { color: var(--muted); margin: 0; }
-.grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-@media (max-width: 900px){ .grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 580px){ .grid { grid-template-columns: 1fr; } }
-.card { background: var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; display:flex; flex-direction:column; gap:10px; min-height: 190px; transition: transform .2s ease, border-color .2s ease; }
-.card:hover { transform: translateY(-2px); border-color:#2a3140; }
-.badge { display:inline-flex; align-items:center; gap:6px; font-size:12px; color: var(--muted); background:#0f1218; border:1px solid var(--border); padding:6px 10px; border-radius:999px; }
-.card h3 { margin: 2px 0 0 0; font-size: 18px; letter-spacing:.2px; }
-.card p { color: var(--muted); margin:0; font-size: 14px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-.cta { margin-top: auto; display:flex; gap:10px; align-items:center; }
-.btn { padding:10px 14px; border:1px solid var(--border); border-radius:10px; background:#0f1116; color:var(--text); font-weight:600; font-size:14px; }
-.btn.primary { background: linear-gradient(135deg, var(--accent), #6ee7b7); border: none; color:#0b0c0e; }
-.footer { color: var(--muted); margin-top: 32px; font-size: 12px; text-align:center; }
-.hr { height:1px; background:var(--border); margin: 18px 0; border:0;}
-.tool-hero { display:grid; grid-template-columns: 1.4fr 1fr; gap: 18px; }
-@media (max-width: 880px){ .tool-hero { grid-template-columns: 1fr; } }
-.tool-card { background: var(--card); border:1px solid var(--border); border-radius:14px; padding:18px; }
-.tool-card h1 { margin: 4px 0 6px 0; font-size: 26px; }
-.tool-card p { color: var(--muted); }
-.kicker { color: #a5a9b2; font-weight: 600; text-transform: uppercase; letter-spacing: .2px; font-size: 11px; }
-.similaires { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; }
-@media (max-width: 880px){ .similaires { grid-template-columns: 1fr; } }
-</style>
+    :root {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #020617;
+      color: #f9fafb;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #020617 100%);
+      color: #e5e7eb;
+      display: flex;
+      justify-content: center;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .page {
+      width: 100%;
+      max-width: 1120px;
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.15), transparent 55%),
+        radial-gradient(circle at top right, rgba(236,72,153,0.12), transparent 55%),
+        #020617;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(148,163,184,0.4);
+      padding: 2.2rem 2.5rem 3rem;
+      box-shadow: 0 24px 80px rgba(15,23,42,0.9);
+    }
+
+    /* Header */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: #020617;
+      border: 1px solid rgba(148,163,184,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .brand-text-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .brand-text-sub {
+      font-size: 0.78rem;
+      color: #9ca3af;
+    }
+    .top-cta {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(94,234,212,0.8);
+      background: rgba(15,118,110,0.25);
+      color: #a5f3fc;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(94,234,212,0.7);
+      background: rgba(15,118,110,0.35);
+      color: #a5f3fc;
+      margin-bottom: 0.75rem;
+    }
+    .badge span.emoji {
+      font-size: 0.9rem;
+    }
+    h1 {
+      font-size: clamp(1.9rem, 2.4vw, 2.3rem);
+      margin: 0 0 0.4rem;
+    }
+    .subtitle {
+      margin: 0 0 1.6rem;
+      font-size: 0.95rem;
+      color: #9ca3af;
+      max-width: 640px;
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.8rem;
+    }
+    .pill {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55,65,81,0.9);
+      background: rgba(15,23,42,0.9);
+      color: #e5e7eb;
+    }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .section-title span.label {
+      opacity: 0.8;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.1rem;
+      margin-bottom: 2.2rem;
+    }
+    .card {
+      position: relative;
+      border-radius: 0.95rem;
+      border: 1px solid rgba(30,64,175,0.65);
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,0.18), transparent 60%),
+        rgba(15,23,42,0.96);
+      padding: 1rem 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 170px;
+    }
+    .card.badge-sales { border-color: rgba(52,211,153,0.7); }
+    .card.badge-marketing { border-color: rgba(96,165,250,0.7); }
+    .card.badge-conversion { border-color: rgba(251,191,36,0.75); }
+    .card.badge-acquisition { border-color: rgba(248,113,113,0.85); }
+
+    .card-kpi { border-color: rgba(129,140,248,0.7); }
+    .card-content { border-color: rgba(244,114,182,0.7); }
+    .card-pricing { border-color: rgba(250,204,21,0.75); }
+    .card-diagnostic { border-color: rgba(248,113,113,0.75); }
+    .card-strategy { border-color: rgba(148,163,184,0.75); }
+
+    .card-cat {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 0.2rem;
+    }
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+    .card-desc {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-bottom: 0.8rem;
+      flex: 1;
+    }
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid rgba(148,163,184,0.8);
+      color: #e5e7eb;
+      background:
+        radial-gradient(circle at top left, rgba(52,211,153,0.25), transparent 55%),
+        rgba(15,23,42,0.9);
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out,
+                  border-color 0.12s ease-out, background 0.12s ease-out;
+    }
+    .card-cta span.arrow { font-size: 0.85rem; }
+    .card-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(15,23,42,0.8);
+      border-color: rgba(52,211,153,0.9);
+      background:
+        radial-gradient(circle at top left, rgba(52,211,153,0.3), transparent 60%),
+        rgba(15,23,42,0.96);
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        padding: 1.6rem 1.4rem 2.4rem;
+        border-radius: 1.1rem;
+      }
+      body {
+        padding: 2rem 0.8rem 3rem;
+      }
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <div class="logo">
-        <div class="logo-badge">P</div>
-        <div class="title">Parlios — Outils IA gratuits</div>
+  <main class="page">
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo">
+          <img src="/assets/brand/parlios-logo.png" alt="Logo Parlios" />
+        </div>
+        <div>
+          <div class="brand-text-title">Parlios</div>
+          <div class="brand-text-sub">Assistants IA business pour solopreneurs</div>
+        </div>
       </div>
+      <a href="#catalogue" class="top-cta">
+        <span>Voir tous les assistants</span>
+        <span>↧</span>
+      </a>
+    </header>
+
+    <div class="badge">
+      <span class="emoji">🤖</span>
+      <span>Outils IA business prêts à l’emploi</span>
+    </div>
+    <h1>Tes assistants IA prêts à l’emploi</h1>
+    <p class="subtitle">
+      Choisis un agent, remplis le formulaire, récupère le résultat.
+      Pas de setup, pas de technique : que des raccourcis pour ton business.
+    </p>
+
+    <div class="pill-row">
+      <div class="pill">⚡ Solopreneurs & petites équipes</div>
+      <div class="pill">🇫🇷 Textes 100 % français</div>
+      <div class="pill">🎯 Focalisé business (ventes, marketing, offres)</div>
     </div>
 
-    <section class="hero">
-      <div class="kicker">Catalogue public</div>
-      <h1>Des outils prêts à l’emploi. Rien à configurer.</h1>
-      <p>Tout est clé en main : choisissez un outil, utilisez-le directement, et gagnez du temps.</p>
+    <!-- 4 assistants principaux -->
+    <section aria-label="Assistants principaux">
+      <div class="section-title">
+        <span>Assistants principaux</span>
+        <span class="label">Les 4 raccourcis à utiliser en priorité</span>
+      </div>
+      <div class="grid">
+
+        <article class="card badge-sales">
+          <div class="card-cat">VENTES</div>
+          <div class="card-title">Script de Vente IA</div>
+          <p class="card-desc">
+            Génère instantanément des messages de vente propres (emails, DM, scripts d’appel)
+            adaptés à ton offre et à ton prospect.
+          </p>
+          <a href="/script-de-vente" class="card-cta">
+            <span>Essayer le Sales Master</span>
+            <span class="arrow">↗</span>
+          </a>
+        </article>
+
+        <article class="card badge-marketing">
+          <div class="card-cat">MARKETING</div>
+          <div class="card-title">Studio Pub IA</div>
+          <p class="card-desc">
+            Crée des textes d’annonces calibrés pour Meta, Google, LinkedIn et les réseaux sociaux,
+            en quelques champs.
+          </p>
+          <a href="/studio-pub-ia" class="card-cta">
+            <span>Générer mes pubs</span>
+            <span class="arrow">↗</span>
+          </a>
+        </article>
+
+        <article class="card badge-conversion">
+          <div class="card-cat">CONVERSION</div>
+          <div class="card-title">Optimiseur de Tunnel</div>
+          <p class="card-desc">
+            Analyse ton tunnel et propose un plan simple par étape, avec les actions concrètes
+            à lancer jour par jour.
+          </p>
+          <a href="/optimiseur-tunnel" class="card-cta">
+            <span>Analyser mon tunnel</span>
+            <span class="arrow">↗</span>
+          </a>
+        </article>
+
+        <article class="card badge-acquisition">
+          <div class="card-cat">ACQUISITION</div>
+          <div class="card-title">Acquisition Engine</div>
+          <p class="card-desc">
+            Génère des idées d’acquisition priorisées (cold, contenu, partenariats, ads)
+            avec une première action concrète à lancer cette semaine.
+          </p>
+          <a href="/acquisition-engine" class="card-cta">
+            <span>Lancer l’engine</span>
+            <span class="arrow">↗</span>
+          </a>
+        </article>
+
+      </div>
     </section>
 
-    <section class="grid">
-      
-  <a href="./script-de-vente-ia.html" class="card" title="Script de Vente IA">
-    <span class="badge">Ventes</span>
-    <h3>Script de Vente IA</h3>
-    <p>Rédige instantanément ton discours de vente et tes messages commerciaux.</p>
-    <div class="cta">
-      <button class="btn primary">Essayer gratuitement</button>
-    </div>
-  </a>
+    <!-- Catalogue complet -->
+    <section id="catalogue" aria-label="Catalogue assistants IA">
+      <div class="section-title">
+        <span>Autres assistants IA business</span>
+        <span class="label">Outils complémentaires pour affiner ton système</span>
+      </div>
 
+      <div class="grid">
 
-  <a href="./studio-pub-ia.html" class="card" title="Studio Pub IA">
-    <span class="badge">Marketing</span>
-    <h3>Studio Pub IA</h3>
-    <p>Génère des textes d’annonces efficaces pour Meta, Google et LinkedIn.</p>
-    <div class="cta">
-      <button class="btn primary">Générer mes pubs</button>
-    </div>
-  </a>
+        <article class="card card-content">
+          <div class="card-cat">CONTENU</div>
+          <div class="card-title">Calendrier Social IA</div>
+          <p class="card-desc">
+            Planifie 30 jours de posts avec titres, hooks et idées adaptées à ta niche
+            et à ta plateforme principale.
+          </p>
+          <a href="/calendrier-social-ia" class="card-cta">
+            <span>Créer mon calendrier</span>
+            <span class="arrow">↗</span>
+          </a>
+        </article>
 
+        <article class="card card-kpi">
+          <div class="card-cat">DONNÉES</div>
+          <div class="card-title">Rapporteur de Performance</div>
+          <p class="card-desc">
+            Transforme tes chiffres (ventes, leads, taux) en résumé actionnable
+            à partager à ton équipe ou à ton client.
+          </p>
+          <a href="/rapporteur-performance" class="card-cta">
+            <span>Analyser mes chiffres</span>
+            <span class="arrow">↗</span>
+          </a>
+        </article>
 
-  <a href="./optimiseur-de-tunnel.html" class="card" title="Optimiseur de Tunnel de Vente">
-    <span class="badge">Conversion</span>
-    <h3>Optimiseur de Tunnel de Vente</h3>
-    <p>Analyse ton tunnel et propose des améliorations concrètes et priorisées.</p>
-    <div class="cta">
-      <button class="btn primary">Analyser mon tunnel</button>
-    </div>
-  </a>
+        <article class="card card-content">
+          <div class="card-cat">COPYWRITING</div>
+          <div class="card-title">Text Booster IA</div>
+          <p class="card-desc">
+            Améliore un texte existant pour le rendre plus clair, plus percutant
+            et plus orienté conversion.
+          </p>
+          <a href="/text-booster-ia" class="card-cta">
+            <span>Booster un texte</span>
+            <span class="arrow">↗</span>
+          </a>
+        </article>
 
+        <article class="card card-content">
+          <div class="card-cat">PAGES DE VENTE</div>
+          <div class="card-title">Landing Page IA</div>
+          <p class="card-desc">
+            Génère la structure complète d’une landing page (sections, angles, CTA)
+            à partir de ton offre, ton audience et ta promesse.
+          </p>
+          <a href="/landing-page-ia" class="card-cta">
+            <span>Générer ma landing</span>
+            <span class="arrow">↗</span>
+          </a>
+        </article>
 
-  <a href="./suivi-clients-ia.html" class="card" title="Suivi Clients IA">
-    <span class="badge">CRM</span>
-    <h3>Suivi Clients IA</h3>
-    <p>Organise tes prospects, relances automatiques et suivi des opportunités.</p>
-    <div class="cta">
-      <button class="btn primary">Organiser mes suivis</button>
-    </div>
-  </a>
+        <article class="card card-diagnostic">
+          <div class="card-cat">OFFRE</div>
+          <div class="card-title">Diagnostic d’Offre</div>
+          <p class="card-desc">
+            Vérifie si ton offre est claire, crédible et vendable, puis propose des
+            améliorations concrètes d’angle et de message.
+          </p>
+          <a href="/diagnostic-offre" class="card-cta">
+            <span>Analyser mon offre</span>
+            <span class="arrow">↗</span>
+          </a>
+        </article>
 
+        <article class="card card-content">
+          <div class="card-cat">EMAIL</div>
+          <div class="card-title">Optimiseur d’Emails</div>
+          <p class="card-desc">
+            Optimise un email (cold, relance, nurturing, promo) avec sujet, structure
+            et formulation orientés réponse ou clic.
+          </p>
+          <a href="/optimiseur-email" class="card-cta">
+            <span>Optimiser mon email</span>
+            <span class="arrow">↗</span>
+          </a>
+        </article>
 
-  <a href="./calendrier-social-ia.html" class="card" title="Calendrier Social IA">
-    <span class="badge">Contenu</span>
-    <h3>Calendrier Social IA</h3>
-    <p>Planifie 30 jours de publications avec titres, idées et hashtags adaptés.</p>
-    <div class="cta">
-      <button class="btn primary">Créer mon calendrier</button>
-    </div>
-  </a>
+        <article class="card card-content">
+          <div class="card-cat">WEBINAIRES</div>
+          <div class="card-title">Coach Webinaire IA</div>
+          <p class="card-desc">
+            Produit le plan complet d’un webinaire de vente adapté à ton audience
+            et à ton offre.
+          </p>
+          <a href="/coach-webinaire" class="card-cta">
+            <span>Préparer mon webinaire</span>
+            <span class="arrow">↗</span>
+          </a>
+        </article>
 
+        <article class="card card-content">
+          <div class="card-cat">RÉSEAUX SOCIAUX</div>
+          <div class="card-title">Optimiseur Réseaux Courts</div>
+          <p class="card-desc">
+            Génère des scripts pour Reels, TikTok ou Shorts, selon ta niche, ton style
+            et ta plateforme principale.
+          </p>
+          <a href="/optimiseur-reseaux-courts" class="card-cta">
+            <span>Générer des scripts courts</span>
+            <span class="arrow">↗</span>
+          </a>
+        </article>
 
-  <a href="./rapporteur-de-performance.html" class="card" title="Rapporteur de Performance">
-    <span class="badge">Données</span>
-    <h3>Rapporteur de Performance</h3>
-    <p>Transforme tes chiffres en graphiques clairs et en résumé partageable.</p>
-    <div class="cta">
-      <button class="btn primary">Analyser mes données</button>
-    </div>
-  </a>
+        <article class="card card-pricing">
+          <div class="card-cat">PRICING</div>
+          <div class="card-title">Coach Prix & Offres</div>
+          <p class="card-desc">
+            Revoit ta grille d’offres et tes prix pour aligner valeur perçue, marges
+            et niveau de ton marché.
+          </p>
+          <a href="/coach-prix-offres" class="card-cta">
+            <span>Clarifier mes offres</span>
+            <span class="arrow">↗</span>
+          </a>
+        </article>
 
+        <article class="card card-diagnostic">
+          <div class="card-cat">PUBS</div>
+          <div class="card-title">Diagnostic Funnel Ads</div>
+          <p class="card-desc">
+            Analyse ton couple ads + landing pour comprendre où ça bloque
+            (clics, leads, ventes) et quoi tester ensuite.
+          </p>
+          <a href="/diagnostic-funnel-ads" class="card-cta">
+            <span>Diagnostiquer mes ads</span>
+            <span class="arrow">↗</span>
+          </a>
+        </article>
 
-  <a href="./titres-accrocheurs-ia.html" class="card" title="Titres Accrocheurs IA">
-    <span class="badge">Copywriting</span>
-    <h3>Titres Accrocheurs IA</h3>
-    <p>Trouve des titres/slogans qui captent l’attention en 1 clic.</p>
-    <div class="cta">
-      <button class="btn primary">Trouver mes titres</button>
-    </div>
-  </a>
+        <article class="card card-kpi">
+          <div class="card-cat">CRM & PIPELINE</div>
+          <div class="card-title">Assistant Sales CRM</div>
+          <p class="card-desc">
+            Propose une structure simple de pipeline, colonnes, tags et routine
+            quotidienne pour ne plus laisser de deals tomber.
+          </p>
+          <a href="/assistant-sales-crm" class="card-cta">
+            <span>Structurer mon pipeline</span>
+            <span class="arrow">↗</span>
+          </a>
+        </article>
 
+        <article class="card card-strategy">
+          <div class="card-cat">ARGUMENTAIRE</div>
+          <div class="card-title">Créateur d’Arguments de Valeur</div>
+          <p class="card-desc">
+            Liste les bénéfices concrets de ton offre à partir des problèmes, désirs
+            et résultats ciblés de ton audience.
+          </p>
+          <a href="/createur-arguments-valeur" class="card-cta">
+            <span>Lister mes arguments</span>
+            <span class="arrow">↗</span>
+          </a>
+        </article>
 
-  <a href="./createur-de-marque-ia.html" class="card" title="Créateur de Marque IA">
-    <span class="badge">Branding</span>
-    <h3>Créateur de Marque IA</h3>
-    <p>Palette, typo, style de voix : bâtis une identité cohérente.</p>
-    <div class="cta">
-      <button class="btn primary">Créer mon univers</button>
-    </div>
-  </a>
+        <article class="card card-strategy">
+          <div class="card-cat">STRATÉGIE</div>
+          <div class="card-title">Analyse Concurrents IA</div>
+          <p class="card-desc">
+            Compare-toi à quelques concurrents et récupère des angles de positionnement
+            pour vraiment te différencier.
+          </p>
+          <a href="/analyse-concurrents" class="card-cta">
+            <span>Analyser mes concurrents</span>
+            <span class="arrow">↗</span>
+          </a>
+        </article>
 
-
-  <a href="./aimant-a-prospects.html" class="card" title="Aimant à Prospects">
-    <span class="badge">Leadgen</span>
-    <h3>Aimant à Prospects</h3>
-    <p>Crée un guide PDF à forte valeur pour attirer tes clients idéaux.</p>
-    <div class="cta">
-      <button class="btn primary">Créer mon guide</button>
-    </div>
-  </a>
-
-
-  <a href="./mail-de-prospection-ia.html" class="card" title="Mail de Prospection IA">
-    <span class="badge">Email</span>
-    <h3>Mail de Prospection IA</h3>
-    <p>Rédige des emails froids personnalisés et efficaces, prêts à envoyer.</p>
-    <div class="cta">
-      <button class="btn primary">Générer mon mail</button>
-    </div>
-  </a>
-
+      </div>
     </section>
-
-    <div class="footer">Prototype statique — version publique (utilisation uniquement)</div>
-  </div>
+  </main>
 </body>
 </html>

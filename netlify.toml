@@ -1,14 +1,44 @@
 [build]
-  base    = "web"
-  command = "npm run build"
-  publish = ".next"
+  command = ""
+  publish = "."
+  functions = "web/netlify/functions"
 
-[functions]
-  directory    = "netlify/functions"
-  node_bundler = "esbuild"
+# 4 assistants IA principaux
+[[redirects]]
+  from = "/script-de-vente"
+  to = "/tools/sales-master/index.html"
+  status = 200
 
-[build.environment]
-  NODE_VERSION = "20"
+[[redirects]]
+  from = "/studio-pub-ia"
+  to = "/tools/content-studio/index.html"
+  status = 200
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+[[redirects]]
+  from = "/optimiseur-tunnel"
+  to = "/tools/launch-factory/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/acquisition-engine"
+  to = "/tools/acquisition-engine/index.html"
+  status = 200
+
+# S?curit? domaine
+[[redirects]]
+  from = "https://parlios.fr/*"
+  to = "https://www.parlios.fr/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://parlios.ca/*"
+  to = "https://www.parlios.fr/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.parlios.ca/*"
+  to = "https://www.parlios.fr/:splat"
+  status = 301
+  force = true
