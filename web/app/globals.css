@@ -53,3 +53,17 @@ header.site{position:sticky; top:0; z-index:50; background:rgba(5,5,8,.45);
 footer.site{margin-top:var(--s16); padding:var(--s6) 0; border-top:1px solid rgba(255,255,255,.06); opacity:.9}
 @media (max-width:960px){.hero{grid-template-columns:1fr; gap:var(--s8); padding:var(--s12) 0 var(--s10)} .grid{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.grid{grid-template-columns:1fr}}
+.parlios-logo-hero {
+    width: 100%;
+    padding-top: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+.parlios-logo-hero img {
+    max-width: 220px;
+    height: auto;
+    filter: drop-shadow(0 0 22px rgba(120, 70, 255, 0.55));
+}
