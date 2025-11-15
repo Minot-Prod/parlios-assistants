@@ -1,4 +1,4 @@
-﻿const \$ = (q) => document.querySelector(q);
+const $ = (q) => document.querySelector(q);
 
 async function callAPI(prompt, tone) {
   const res = await fetch("/.netlify/functions/value-prop", {
@@ -13,12 +13,13 @@ async function callAPI(prompt, tone) {
   return res.json();
 }
 
+// Updated DOM selectors: use querySelector with proper IDs
 window.addEventListener("DOMContentLoaded", () => {
-  const promptEl = #prompt;
-  const toneEl   = #tone;
-  const btn      = #go;
-  const statusEl = #status;
-  const resultEl = #result;
+  const promptEl = $("#prompt");
+  const toneEl   = $("#tone");
+  const btn      = $("#go");
+  const statusEl = $("#status");
+  const resultEl = $("#result");
 
   btn.addEventListener("click", async () => {
     const prompt = promptEl.value.trim();
