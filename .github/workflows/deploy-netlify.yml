@@ -1,0 +1,70 @@
+name: Deploy Netlify + Smoke
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: "20"
+  PROD_DOMAIN: ${{ secrets.PROD_DOMAIN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./web
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build Next.js
+        run: npm run build
+
+      - name: Netlify CLI
+        run: npm i -g netlify-cli
+
+      - name: Deploy to Netlify (prod)
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          netlify deploy --prod --build
+          netlify status
+
+  smoke:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello
+        env:
+          URL: ${{ env.PROD_DOMAIN }}/.netlify/functions/hello
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" "$URL")
+          body=$(curl -s "$URL" || true)
+          echo "HTTP $code — $body"
+          test "$code" = "200"
+          echo "$body" | grep -qi "hello-ok"
+      - name: Health
+        env:
+          URL: ${{ env.PROD_DOMAIN }}/.netlify/functions/health
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" "$URL")
+          body=$(curl -s "$URL" || true)
+          echo "HTTP $code — $body"
+          test "$code" = "200"
+          echo "$body" | grep -qi "\"ok\": *true"

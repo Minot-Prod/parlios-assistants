@@ -1,0 +1,23 @@
+﻿{
+    "tools":  [
+                  {
+                      "slug":  "ai-bio-booster",
+                      "name":  "AI Bio Booster",
+                      "description":  "GÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©nÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¨re une bio percutante (LinkedIn/Instagram/Site).",
+                      "enabled":  true
+                  },
+                  {
+                      "slug":  "headline-wizard",
+                      "name":  "Headline Wizard",
+                      "description":  "GÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨re des headlines qui claquent (ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°Ãƒâ€šÃ‚Â¤80 chars).",
+                      "enabled":  true
+                  },
+                  {
+                      "slug":  "value-prop",
+                      "name":  "Value Prop",
+                      "description":  "RÃƒÆ’Ã‚Â©sume une proposition de valeur en 1 phrase.",
+                      "enabled":  true
+                  }
+              ]
+}
+

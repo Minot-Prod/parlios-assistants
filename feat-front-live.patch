@@ -1,0 +1,217 @@
+*** Begin Patch
+*** Update File: web/app/tools/page.tsx
+@@
+-import ToolCard from "../../components/ToolCard";
+-import { TOOLS } from "../../lib/config";
+-
+-export default function ToolsIndex() {
+-  return (
+-    <section className="card" style={{ padding: 18 }}>
+-      <h2>Outils IA</h2>
+-      <div className="grid" style={{ marginTop: 12 }}>
+-        {TOOLS.length === 0 ? (
+-          <p>Aucun outil actif pour le moment.</p>
+-        ) : (
+-          TOOLS.map((t) => (
+-            <ToolCard
+-              key={t.slug}
+-              title={t.name}
+-              description={t.description}
+-              href={`/tools/${t.slug}/`}
+-            />
+-          ))
+-        )}
+-      </div>
+-      <p style={{ marginTop: 24, fontSize: 12, opacity: 0.6 }}>
+-        Tu veux en voir plus ? Ping et on ajoute des mini-outils en continu.
+-      </p>
+-    </section>
+-  );
+-}
++import ToolCard from "../../components/ToolCard";
++import { loadTools } from "../../lib/tools";
++
++export const revalidate = 60; // ISR
++
++export default async function ToolsIndex() {
++  const tools = (await loadTools()).filter((t) => t.enabled !== false);
++  return (
++    <section className="card" style={{ padding: 18 }}>
++      <h2>Outils IA</h2>
++      <div className="grid" style={{ marginTop: 12 }}>
++        {tools.length === 0 ? (
++          <p>Aucun outil actif pour le moment.</p>
++        ) : (
++          tools.map((t) => (
++            <ToolCard
++              key={t.slug}
++              title={t.name}
++              description={t.description || ""}
++              href={`/tools/${t.slug}/`}
++            />
++          ))
++        )}
++      </div>
++      <p style={{ marginTop: 24, fontSize: 12, opacity: 0.6 }}>
++        Santé du service : <a href="/api/health">/api/health</a>
++      </p>
++    </section>
++  );
++}
+*** End Patch
+*** Begin Patch
+*** Add File: web/app/api/health/route.ts
++export const runtime = "edge";
++
++export async function GET() {
++  return new Response(
++    JSON.stringify({ ok: true, service: "parlios", runtime: "next-edge" }),
++    { headers: { "content-type": "application/json; charset=utf-8" } }
++  );
++}
++
+*** End Patch
+*** Begin Patch
+*** Update File: web/components/ToolCard.tsx
+@@
+-  return (
+-    <a href={href} className="card" style={{ display: "block" }}>
+-      <h3>{title}</h3>
+-      <p>{description}</p>
+-      <div className="status">Cliquer pour ouvrir ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢</div>
+-    </a>
+-  );
++  return (
++    <a href={href} className="card" style={{ display: "block" }}>
++      <h3>{title}</h3>
++      <p>{description}</p>
++      <div className="status">Cliquer pour ouvrir →</div>
++    </a>
++  );
+*** End Patch
+*** Begin Patch
+*** Update File: web/app/tools/headline-wizard/page.tsx
+@@
+-      <h2 style={{ margin: "8px 0 14px" }}>Headline Wizard</h2>
++      <h2 style={{ margin: "8px 0 14px" }}>Headline Wizard</h2>
+       <ToolForm
+-        title="GÃ©nÃ©rateur de titres Ã  fort CTR"
+-        placeholder="DÃ©cris le contenu/lâ€™offre/le contexte..."
++        title="Générateur de titres à fort CTR"
++        placeholder="Décris le contenu/l’offre/le contexte..."
+         endpoint={API.headline}
+-        buttonLabel="GÃ©nÃ©rer mon titre"
++        buttonLabel="Générer mon titre"
+       />
+*** End Patch
+*** Begin Patch
+*** Update File: web/app/tools/smart-summary/page.tsx
+@@
+-      <h2 style={{ margin: "8px 0 14px" }}>Smart Summary</h2>
++      <h2 style={{ margin: "8px 0 14px" }}>Smart Summary</h2>
+       <ToolForm
+-        title="RÃ©sumeur intelligent avec actions"
+-        placeholder="Colle ton texte/URL, ou dÃ©cris le document Ã  rÃ©sumer..."
++        title="Résumé intelligent avec actions"
++        placeholder="Colle ton texte/URL, ou décris le document à résumer..."
+         endpoint={API.summary}
+-        buttonLabel="RÃ©sumer"
++        buttonLabel="Résumer"
+       />
+*** End Patch
+*** Begin Patch
+*** Update File: data/tools.registry.json
+@@
+-{
+-    "tools":  [
+-                  {
+-                      "slug":  "ai-bio-booster",
+-                      "name":  "AI Bio Booster",
+-                      "description":  "GÃƒÂ©nÃƒÂ¨re une bio percutante (LinkedIn/Instagram/Site).",
+-                      "enabled":  true
+-                  },
+-                  {
+-                      "slug":  "headline-wizard",
+-                      "name":  "Headline Wizard",
+-                      "description":  "GÃ©nÃ¨re des headlines qui claquent (â‰¤80 chars).",
+-                      "enabled":  true
+-                  },
+-                  {
+-                      "slug":  "value-prop",
+-                      "name":  "Value Prop",
+-                      "description":  "Résume une proposition de valeur en 1 phrase.",
+-                      "enabled":  true
+-                  }
+-              ]
+-}
++{
++  "tools": [
++    {
++      "slug": "ai-bio-booster",
++      "name": "AI Bio Booster",
++      "description": "Génère une bio percutante (LinkedIn/Instagram/Site).",
++      "enabled": true
++    },
++    {
++      "slug": "headline-wizard",
++      "name": "Headline Wizard",
++      "description": "Génère des headlines qui claquent (≤80 caractères).",
++      "enabled": true
++    },
++    {
++      "slug": "value-prop",
++      "name": "Value Prop",
++      "description": "Résume une proposition de valeur en 1 phrase.",
++      "enabled": true
++    }
++  ]
++}
+*** End Patch
+*** Begin Patch
+*** Update File: web/data/tools.registry.json
+@@
+-﻿{
+-    "tools":  [
+-                  {
+-                      "slug":  "ai-bio-booster",
+-                      "name":  "AI Bio Booster",
+-                      "description":  "GÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©nÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¨re une bio percutante (LinkedIn/Instagram/Site).",
+-                      "enabled":  true
+-                  },
+-                  {
+-                      "slug":  "headline-wizard",
+-                      "name":  "Headline Wizard",
+-                      "description":  "GÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨re des headlines qui claquent (ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°Ãƒâ€šÃ‚Â¤80 chars).",
+-                      "enabled":  true
+-                  },
+-                  {
+-                      "slug":  "value-prop",
+-                      "name":  "Value Prop",
+-                      "description":  "RÃƒÆ’Ã‚Â©sume une proposition de valeur en 1 phrase.",
+-                      "enabled":  true
+-                  }
+-              ]
+-}
++{
++  "tools": [
++    {
++      "slug": "ai-bio-booster",
++      "name": "AI Bio Booster",
++      "description": "Génère une bio percutante (LinkedIn/Instagram/Site).",
++      "enabled": true
++    },
++    {
++      "slug": "headline-wizard",
++      "name": "Headline Wizard",
++      "description": "Génère des headlines qui claquent (≤80 caractères).",
++      "enabled": true
++    },
++    {
++      "slug": "value-prop",
++      "name": "Value Prop",
++      "description": "Résume une proposition de valeur en 1 phrase.",
++      "enabled": true
++    }
++  ]
++}
+*** End Patch

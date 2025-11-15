@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Headline Wizard</title>
+  <meta name="description" content="Génère des headlines qui claquent (≤80 chars).">
+  <link rel="stylesheet" href="/public/styles.css">
+  <script src="/tools/headline-wizard/script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <h1>Headline Wizard ⚡</h1>
+      <p>Génère des headlines qui claquent (≤80 chars).</p>
+    </header>
+
+    <section class="card">
+      <label for="prompt">Entrée</label>
+      <textarea id="prompt" placeholder="Décris ton besoin en 1-2 phrases."></textarea>
+
+      <div class="row">
+        <span class="label-inline">Ton:</span>
+        <select id="tone">
+          <option>LinkedIn</option>
+          <option>Site pro</option>
+          <option>Instagram</option>
+          <option>Sober</option>
+          <option>Punchy</option>
+        </select>
+        <button id="go">Générer</button>
+      </div>
+
+      <p id="status"></p>
+      <pre id="result"></pre>
+    </section>
+  </main>
+</body>
+</html>

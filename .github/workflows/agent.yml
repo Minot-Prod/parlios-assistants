@@ -1,0 +1,53 @@
+name: Repo Agent (PR bot)
+
+on:
+  issue_comment:
+    types: [created]
+  issues:
+    types: [opened, edited]
+
+jobs:
+  plan_or_apply:
+    if: contains(github.event.comment.body || github.event.issue.body, '/agent')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install deps
+        run: npm init -y && npm i openai@4
+      - name: Run agent
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node -e "const fs=require('fs');(async()=>{
+            const body = (process.env.GITHUB_EVENT_PATH? JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH,'utf8')):{});
+            const text = (body.comment&&body.comment.body)||(body.issue&&body.issue.body)||'';
+            const { OpenAI } = require('openai');
+            const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+            const prompt = 'Tu es un agent de repo Parlios. Lis la consigne delimitée par /agent ... et propose une modification atomique: soit créer un nouvel outil suivant la procédure, soit corriger un bug. Réponds uniquement par un patch diff unifié minimal, sans commentaire.';
+            const resp = await client.chat.completions.create({ model: 'gpt-4o-mini', messages:[
+              {role:'system', content: prompt},
+              {role:'user', content: text}
+            ]});
+            const out = resp.choices[0].message.content;
+            fs.writeFileSync('agent.patch', out);
+          })()"
+      - name: Apply patch & create PR
+        run: |
+          set -e
+          if [ ! -s agent.patch ]; then echo 'No patch from agent'; exit 0; fi
+          git config user.name "parlios-agent"
+          git config user.email "bot@parlios.ai"
+          git checkout -b agent/update-$(date +%s)
+          git apply agent.patch || (echo 'Patch failed to apply'; cat agent.patch; exit 1)
+          git add -A
+          git commit -m "Agent: apply requested change"
+          git push --set-upstream origin HEAD
+          gh pr create --title "Agent update" --body "Auto PR via Repo Agent." || true

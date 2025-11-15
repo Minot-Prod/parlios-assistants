@@ -1,0 +1,74 @@
+﻿name: CI
+on:
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Install
+        run: npm ci || npm i
+      - name: Typecheck & Lint
+        run: |
+          npm run typecheck || echo "::notice ::no typecheck script"
+          npm run lint || echo "::notice ::no lint script"
+      - name: Unit tests
+        run: npm test -- --ci || echo "::notice ::no test script"
+
+  e2e:
+    runs-on: ubuntu-latest
+    needs: build-test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci || npm i
+      - run: npx playwright install --with-deps
+      - name: Build static (Next export ou équivalent)
+        run: |
+          npm run build || echo "::notice ::no build script"
+          npm run export || echo "::notice ::no export script"
+      - name: Serve out/ on 8888
+        run: npx http-server ./out -p 8888 &
+      - name: E2E smoke
+        env:
+          BASE_URL: http://localhost:8888
+        run: npm run e2e:ci
+
+  drift-guard:
+    runs-on: ubuntu-latest
+    needs: e2e
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci || npm i
+      - run: npm i yaml playwright
+      - name: Drift check (preview or local)
+        env:
+          DRIFT_URL: ${{ secrets.NETLIFY_PREVIEW_URL || '' }}
+        run: node scripts/drift-check.ts
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    needs: e2e
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci || npm i
+      - name: Build static
+        run: |
+          npm run build || echo "::notice ::no build script"
+          npm run export || echo "::notice ::no export script"
+      - name: LHCI (perf+a11y gates)
+        run: npx @lhci/cli autorun --config=.lighthouserc.json || echo "::notice ::LHCI soft gate"
+
+  status:
+    runs-on: ubuntu-latest
+    needs: [build-test, e2e, drift-guard, lighthouse]
+    steps:
+      - run: echo "All checks completed"

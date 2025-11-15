@@ -1,0 +1,39 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Value Prop</title>
+  <meta name="description" content="Résume une proposition de valeur en 1 phrase.">
+  <link rel="stylesheet" href="/public/styles.css">
+  <script src="/tools/value-prop/script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <h1>Value Prop ⚡</h1>
+      <p>Résume une proposition de valeur en 1 phrase.</p>
+    </header>
+
+    <section class="card">
+      <label for="prompt">Entrée</label>
+      <textarea id="prompt" placeholder="Décris ton besoin en 1-2 phrases."></textarea>
+
+      <div class="row">
+        <span class="label-inline">Ton:</span>
+        <select id="tone">
+          <option>LinkedIn</option>
+          <option>Site pro</option>
+          <option>Instagram</option>
+          <option>Sober</option>
+          <option>Punchy</option>
+        </select>
+        <button id="go">Générer</button>
+      </div>
+
+      <p id="status"></p>
+      <pre id="result"></pre>
+    </section>
+  </main>
+</body>
+</html>

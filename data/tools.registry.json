@@ -1,0 +1,22 @@
+{
+    "tools":  [
+                  {
+                      "slug":  "ai-bio-booster",
+                      "name":  "AI Bio Booster",
+                      "description":  "GÃƒÂ©nÃƒÂ¨re une bio percutante (LinkedIn/Instagram/Site).",
+                      "enabled":  true
+                  },
+                  {
+                      "slug":  "headline-wizard",
+                      "name":  "Headline Wizard",
+                      "description":  "GÃ©nÃ¨re des headlines qui claquent (â‰¤80 chars).",
+                      "enabled":  true
+                  },
+                  {
+                      "slug":  "value-prop",
+                      "name":  "Value Prop",
+                      "description":  "Résume une proposition de valeur en 1 phrase.",
+                      "enabled":  true
+                  }
+              ]
+}

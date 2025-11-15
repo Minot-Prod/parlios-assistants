@@ -1,0 +1,43 @@
+﻿openapi: 3.1.0
+info: {title: GitHub Minimal, version: 1.0.0}
+servers: [{url: https://api.github.com}]
+paths:
+  /repos/Minot-Prod/parlios-stack/pulls:
+    post:
+      operationId: createPullRequest
+      security: [{bearerAuth: []}]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [title, head, base]
+              properties:
+                title: {type: string}
+                head: {type: string}
+                base: {type: string}
+                body: {type: string}
+                draft: {type: boolean}
+      responses: {'201': {description: created}}
+  /repos/Minot-Prod/parlios-stack/deployments:
+    post:
+      operationId: createDeployment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [ref, environment]
+              properties:
+                ref: {type: string}
+                environment: {type: string}
+                required_contexts: {type: array, items: {type: string}}
+      responses: {'201': {description: created}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: token

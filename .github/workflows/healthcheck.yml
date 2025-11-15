@@ -1,0 +1,23 @@
+name: Prod Healthcheck
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"  # toutes les 15 min
+  workflow_dispatch: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    env:
+      PROD_DOMAIN: ${{ secrets.PROD_DOMAIN }}
+    steps:
+      - name: Check hello
+        run: |
+          URL="${{ env.PROD_DOMAIN }}/.netlify/functions/hello"
+          code=$(curl -s -o /dev/null -w "%{http_code}" "$URL")
+          test "$code" = "200"
+      - name: Check health
+        run: |
+          URL="${{ env.PROD_DOMAIN }}/.netlify/functions/health"
+          code=$(curl -s -o /dev/null -w "%{http_code}" "$URL")
+          test "$code" = "200"

@@ -1,0 +1,13 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720">
+  <defs>
+    <pattern id="p" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="rgba(255,255,255,.09)"/>
+    </pattern>
+    <radialGradient id="r" cx=".7" cy="-.2" r="1">
+      <stop offset="0" stop-color="rgba(0,175,255,.22)"/><stop offset="1" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="720" fill="#050508"/>
+  <rect width="1200" height="720" fill="url(#p)"/>
+  <rect width="1200" height="720" fill="url(#r)"/>
+</svg>

@@ -1,0 +1,13 @@
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif; }
+a { text-decoration: none; }
+.container { min-height: 100svh; background: radial-gradient(1200px 600px at 50% -10%, #1f2937, #000); color:#fff; display:flex; flex-direction:column; }
+.main { flex:1; display:grid; place-items:center; padding:4rem 1rem; }
+.hero { text-align:center; max-width:900px; }
+.hero h1 { font-size: clamp(2rem, 6vw, 3.2rem); margin:.3rem 0 .6rem; }
+.hero p { color:#a3a3a3; font-size:1.125rem; }
+.cta { display:inline-block; margin-top:1.5rem; background:#2563eb; color:#fff; padding:.75rem 1.1rem; border-radius:.6rem; }
+.nav { position:fixed; top:16px; left:16px; display:flex; gap:12px; }
+.nav a { color:#38bdf8; }
+.footer { color:#9ca3af; font-size:.9rem; text-align:center; padding:1.25rem; border-top:1px solid #111827; }

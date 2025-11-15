@@ -1,0 +1,39 @@
+﻿version: 1
+site:
+  url: https://www.parlios.fr
+  envs: [staging, prod]
+  homepage:
+    owner: web
+    components:
+      - id: header
+        status: present
+      - id: hero
+        status: present
+      - id: tools_grid
+        status: present
+      - id: manifesto_panel
+        status: present
+      - id: footer
+        status: present
+  features:
+    - key: tools_catalog
+      status: present
+  deps:
+    - name: nextjs
+      version: 16.x
+    - name: react
+      version: 18.3.x
+  monitoring:
+    sentry_project: parlios-web
+rules:
+  destructive_changes: require_label: approved-breaking-change
+  default_branch: main
+  e2e_required_paths:
+    - web/app/page.tsx
+    - web/app/layout.tsx
+    - web/components/**
+deploy:
+  provider: netlify
+  site_id_secret: NETLIFY_SITE_ID
+  auth_token_secret: NETLIFY_AUTH_TOKEN
+  strategy: next_export

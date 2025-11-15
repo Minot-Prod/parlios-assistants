@@ -1,0 +1,4 @@
+https://parlios.fr/* https://www.parlios.fr/:splat 301!
+https://parlios.ca/*     https://www.parlios.fr/:splat 301!
+https://www.parlios.ca/* https://www.parlios.fr/:splat 301!
+/tools/ai-bio /tools/ai-bio-booster/index.html 200

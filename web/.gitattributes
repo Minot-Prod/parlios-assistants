@@ -1,0 +1,2 @@
+﻿* text=auto eol=lf working-tree-encoding=UTF-8
+*.{ts,tsx,js,jsx,json,md,css,html,txt,yml,yaml,toml} text eol=lf

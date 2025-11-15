@@ -1,0 +1,19 @@
+﻿# Node / Next
+node_modules/
+.next/
+out/
+*.log
+.env
+.env.*
+# Tests / reports
+coverage/
+playwright-report/
+# OS
+.DS_Store
+Thumbs.db
+
+# Local Netlify folder
+.netlify
+
+.netlify/
+

@@ -1,0 +1,36 @@
+name: Format Guard
+on:
+  push: { branches: [ main ] }
+  pull_request: { branches: [ main ] }
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fail on UTF-8 BOM in text files (incl. netlify.toml)
+        shell: bash
+        run: |
+          set -euo pipefail
+          bad=$(grep -rI --binary-files=without-match --exclude-dir={.git,node_modules} -l $'\xEF\xBB\xBF' . || true)
+          if [ -n "$bad" ]; then
+            echo "BOM detected in:"
+            echo "$bad"
+            exit 1
+          fi
+          if [ -f netlify.toml ]; then
+            first=$(xxd -p -l 3 netlify.toml || true)
+            [ "$first" = "efbbbf" ] && { echo "netlify.toml has BOM"; exit 1; }
+          fi
+          echo "No BOM ✅"
+
+      - name: Block ESM-style handlers in Netlify Functions (use CommonJS)
+        shell: bash
+        run: |
+          set -euo pipefail
+          ls netlify/functions/*.js >/dev/null 2>&1 || { echo "No functions, skip"; exit 0; }
+          if grep -R "export[[:space:]]\+async[[:space:]]\+function[[:space:]]\+handler" netlify/functions/*.js >/dev/null 2>&1; then
+            echo "Found ESM handler — use module.exports/exports.handler"
+            exit 1
+          fi
+          echo "Functions handler style OK (CJS) ✅"

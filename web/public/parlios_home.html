@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parlios · Outils IA gratuits</title>
+  <style>
+:root {
+  --bg: #0b0c0e;
+  --card:#111318;
+  --text:#e6e7ea;
+  --muted:#b7bbc3;
+  --accent:#8b5cf6;
+  --accent-2:#22c55e;
+  --border:#1b1f27;
+}
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 80px; }
+.header { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom: 28px; }
+.logo { display:flex; align-items:center; gap:12px; }
+.logo-badge { width:32px; height:32px; border-radius:8px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); display:grid; place-items:center; color:white; font-weight:800; }
+.title { font-size: 20px; font-weight: 700; letter-spacing: .3px; }
+.hero { background: linear-gradient(180deg, rgba(139,92,246,.12), rgba(34,197,94,.10) 70%, transparent 100%); border: 1px solid var(--border); border-radius: 14px; padding: 20px 18px; margin-bottom: 24px; }
+.hero h1 { font-size: 26px; margin: 4px 0 8px 0; }
+.hero p { color: var(--muted); margin: 0; }
+.grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 900px){ .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 580px){ .grid { grid-template-columns: 1fr; } }
+.card { background: var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; display:flex; flex-direction:column; gap:10px; min-height: 190px; transition: transform .2s ease, border-color .2s ease; }
+.card:hover { transform: translateY(-2px); border-color:#2a3140; }
+.badge { display:inline-flex; align-items:center; gap:6px; font-size:12px; color: var(--muted); background:#0f1218; border:1px solid var(--border); padding:6px 10px; border-radius:999px; }
+.card h3 { margin: 2px 0 0 0; font-size: 18px; letter-spacing:.2px; }
+.card p { color: var(--muted); margin:0; font-size: 14px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.cta { margin-top: auto; display:flex; gap:10px; align-items:center; }
+.btn { padding:10px 14px; border:1px solid var(--border); border-radius:10px; background:#0f1116; color:var(--text); font-weight:600; font-size:14px; }
+.btn.primary { background: linear-gradient(135deg, var(--accent), #6ee7b7); border: none; color:#0b0c0e; }
+.footer { color: var(--muted); margin-top: 32px; font-size: 12px; text-align:center; }
+.hr { height:1px; background:var(--border); margin: 18px 0; border:0;}
+.tool-hero { display:grid; grid-template-columns: 1.4fr 1fr; gap: 18px; }
+@media (max-width: 880px){ .tool-hero { grid-template-columns: 1fr; } }
+.tool-card { background: var(--card); border:1px solid var(--border); border-radius:14px; padding:18px; }
+.tool-card h1 { margin: 4px 0 6px 0; font-size: 26px; }
+.tool-card p { color: var(--muted); }
+.kicker { color: #a5a9b2; font-weight: 600; text-transform: uppercase; letter-spacing: .2px; font-size: 11px; }
+.similaires { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; }
+@media (max-width: 880px){ .similaires { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <div class="logo-badge">P</div>
+        <div class="title">Parlios — Outils IA gratuits</div>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="kicker">Catalogue public</div>
+      <h1>Des outils prêts à l’emploi. Rien à configurer.</h1>
+      <p>Tout est clé en main : choisissez un outil, utilisez-le directement, et gagnez du temps.</p>
+    </section>
+
+    <section class="grid">
+      
+  <a href="./script-de-vente-ia.html" class="card" title="Script de Vente IA">
+    <span class="badge">Ventes</span>
+    <h3>Script de Vente IA</h3>
+    <p>Rédige instantanément ton discours de vente et tes messages commerciaux.</p>
+    <div class="cta">
+      <button class="btn primary">Essayer gratuitement</button>
+    </div>
+  </a>
+
+
+  <a href="./studio-pub-ia.html" class="card" title="Studio Pub IA">
+    <span class="badge">Marketing</span>
+    <h3>Studio Pub IA</h3>
+    <p>Génère des textes d’annonces efficaces pour Meta, Google et LinkedIn.</p>
+    <div class="cta">
+      <button class="btn primary">Générer mes pubs</button>
+    </div>
+  </a>
+
+
+  <a href="./optimiseur-de-tunnel.html" class="card" title="Optimiseur de Tunnel de Vente">
+    <span class="badge">Conversion</span>
+    <h3>Optimiseur de Tunnel de Vente</h3>
+    <p>Analyse ton tunnel et propose des améliorations concrètes et priorisées.</p>
+    <div class="cta">
+      <button class="btn primary">Analyser mon tunnel</button>
+    </div>
+  </a>
+
+
+  <a href="./suivi-clients-ia.html" class="card" title="Suivi Clients IA">
+    <span class="badge">CRM</span>
+    <h3>Suivi Clients IA</h3>
+    <p>Organise tes prospects, relances automatiques et suivi des opportunités.</p>
+    <div class="cta">
+      <button class="btn primary">Organiser mes suivis</button>
+    </div>
+  </a>
+
+
+  <a href="./calendrier-social-ia.html" class="card" title="Calendrier Social IA">
+    <span class="badge">Contenu</span>
+    <h3>Calendrier Social IA</h3>
+    <p>Planifie 30 jours de publications avec titres, idées et hashtags adaptés.</p>
+    <div class="cta">
+      <button class="btn primary">Créer mon calendrier</button>
+    </div>
+  </a>
+
+
+  <a href="./rapporteur-de-performance.html" class="card" title="Rapporteur de Performance">
+    <span class="badge">Données</span>
+    <h3>Rapporteur de Performance</h3>
+    <p>Transforme tes chiffres en graphiques clairs et en résumé partageable.</p>
+    <div class="cta">
+      <button class="btn primary">Analyser mes données</button>
+    </div>
+  </a>
+
+
+  <a href="./titres-accrocheurs-ia.html" class="card" title="Titres Accrocheurs IA">
+    <span class="badge">Copywriting</span>
+    <h3>Titres Accrocheurs IA</h3>
+    <p>Trouve des titres/slogans qui captent l’attention en 1 clic.</p>
+    <div class="cta">
+      <button class="btn primary">Trouver mes titres</button>
+    </div>
+  </a>
+
+
+  <a href="./createur-de-marque-ia.html" class="card" title="Créateur de Marque IA">
+    <span class="badge">Branding</span>
+    <h3>Créateur de Marque IA</h3>
+    <p>Palette, typo, style de voix : bâtis une identité cohérente.</p>
+    <div class="cta">
+      <button class="btn primary">Créer mon univers</button>
+    </div>
+  </a>
+
+
+  <a href="./aimant-a-prospects.html" class="card" title="Aimant à Prospects">
+    <span class="badge">Leadgen</span>
+    <h3>Aimant à Prospects</h3>
+    <p>Crée un guide PDF à forte valeur pour attirer tes clients idéaux.</p>
+    <div class="cta">
+      <button class="btn primary">Créer mon guide</button>
+    </div>
+  </a>
+
+
+  <a href="./mail-de-prospection-ia.html" class="card" title="Mail de Prospection IA">
+    <span class="badge">Email</span>
+    <h3>Mail de Prospection IA</h3>
+    <p>Rédige des emails froids personnalisés et efficaces, prêts à envoyer.</p>
+    <div class="cta">
+      <button class="btn primary">Générer mon mail</button>
+    </div>
+  </a>
+
+    </section>
+
+    <div class="footer">Prototype statique — version publique (utilisation uniquement)</div>
+  </div>
+</body>
+</html>

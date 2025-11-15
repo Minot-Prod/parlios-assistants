@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Bio Booster</title>
+  <meta name="description" content="La bio parfaite en 5 secondes — LinkedIn, Instagram, site pro.">
+  <link rel="stylesheet" href="/public/styles.css">
+  <script src="/tools/ai-bio-booster/script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <h1>AI Bio Booster ⚡</h1>
+      <p>Décris-toi en une phrase. Obtiens une bio percutante en 5 secondes.</p>
+    </header>
+
+    <section class="card">
+      <label for="prompt">Qui es-tu ? (rôle, secteur, point fort, cible)</label>
+      <textarea id="prompt" placeholder="Ex: Développeur front-end à Montréal, j’optimise le ROI, j’adore la perf et l’accessibilité, je parle français/anglais."></textarea>
+
+      <div class="row">
+        <span class="label-inline">Ton:</span>
+        <select id="tone">
+          <option>LinkedIn</option>
+          <option>Site pro</option>
+          <option>Instagram</option>
+          <option>Sober</option>
+          <option>Punchy</option>
+        </select>
+        <button id="go">Générer ma bio</button>
+      </div>
+
+      <p id="status"></p>
+      <pre id="result"></pre>
+
+      <div class="cta-row" style="margin-top:12px">
+        <a id="cta" class="cta" href="#" target="_blank" rel="noopener">⭐ Passer en mode Pro (tones & taglines)</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

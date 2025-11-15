@@ -1,0 +1,15 @@
+:root { --bg:#0b1520; --ink:#e9f1f7; --muted:#9fb3c8; --card:#101c2b; --brand:#3dd6ed; }
+* { box-sizing: border-box; }
+html,body { margin:0; padding:0; background:var(--bg); color:var(--ink); font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif; }
+a { color:var(--brand); text-decoration:none; } a:hover { text-decoration:underline; }
+.container { max-width:980px; margin:0 auto; padding:24px; }
+.header { display:flex; align-items:center; gap:16px; padding:16px 0; border-bottom:1px solid #1b2a3b; }
+.header .logo { width:36px; height:36px; border-radius:8px; background:linear-gradient(135deg,#3dd6ed,#7ef7b3); }
+.header h1 { margin:0; font-size:20px; }
+.nav { margin-left:auto; display:flex; gap:16px; }
+.card { background:var(--card); border:1px solid #1b2a3b; border-radius:12px; padding:16px; margin:16px 0; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; }
+.kicker { color:var(--muted); margin:8px 0 0; }
+.btn { display:inline-block; padding:10px 14px; background:#0e2a3a; border:1px solid #224861; border-radius:10px; }
+.btn:hover { background:#11354a; }
+.meta { color:var(--muted); font-size:14px; }

@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parlios — Aperçu Rouge & Bleu</title>
+  <meta name="description" content="Aperçu visuel Parlios avec thème rouge/bleu néon sur fond sombre." />
+  <style>
+    :root{
+      --bg:#050508;
+      --surface:#0a0a10;
+      --text:#f5f5f7;
+      --muted:#c8c8d0;
+      --blue:#00afff;
+      --red:#ff004c;
+      --accent:#ffd700;
+      --radius:16px;
+      --shadow:0 10px 40px rgba(0,0,0,.5);
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      min-height:100vh;
+      color:var(--text);
+      background:
+        radial-gradient(1000px 600px at 80% -10%, rgba(0,175,255,.15), transparent 60%),
+        radial-gradient(800px 500px at 20% 110%, rgba(255,0,76,.10), transparent 60%),
+        var(--bg);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+      line-height:1.5;
+      overflow-x:hidden;
+    }
+    .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+    header{
+      position:sticky; top:0; z-index:50;
+      background:rgba(5,5,8,.4);
+      backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 0}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit}
+    .brand .mark{width:36px; height:36px; display:grid; place-items:center; border-radius:50%;
+                 box-shadow:0 0 50px rgba(0,175,255,.35), inset 0 0 18px rgba(255,0,76,.35);}
+    .brand .word{font-weight:800; letter-spacing:-.02em; font-size:20px}
+    .nav a{color:#e9e7ff; text-decoration:none; opacity:.8; padding:8px 12px; border-radius:10px}
+    .nav a:hover{opacity:1; background:rgba(255,255,255,.06)}
+    .hero{
+      position:relative;
+      padding:92px 0 80px;
+      display:grid; grid-template-columns:1.05fr .95fr; gap:48px;
+    }
+    h1{
+      margin:0 0 12px;
+      font-size: clamp(34px, 6vw, 64px);
+      line-height:1.06;
+      letter-spacing:-.02em;
+      text-shadow: 0 6px 30px rgba(0,175,255,.35);
+    }
+    .lead{font-size: clamp(16px, 2.2vw, 20px); color:var(--muted); margin:0 0 20px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      border-radius:12px; padding:12px 18px; text-decoration:none; font-weight:700;
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+      color:#fff;
+    }
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(0,175,255,.28), rgba(0,175,255,.16));
+      border-color: rgba(0,175,255,.45);
+      text-shadow: 0 2px 12px rgba(0,175,255,.45);
+    }
+    .btn.secondary{
+      background: linear-gradient(180deg, rgba(255,0,76,.22), rgba(255,0,76,.10));
+      border-color: rgba(255,0,76,.35);
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 12px 40px rgba(0,175,255,.25) }
+    .panel{
+      position:relative;
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      padding:20px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+    }
+    .wave, .wave2{
+      position:absolute; inset:-30% -20%;
+      filter: blur(40px);
+      opacity:.7;
+      transform: rotate(8deg);
+      animation: float 8s ease-in-out infinite alternate;
+      pointer-events:none;
+    }
+    .wave{ background: radial-gradient(800px 220px at 40% 55%, rgba(0,175,255,.55), transparent 50%),
+                           radial-gradient(600px 240px at 80% 50%, rgba(255,0,76,.45), transparent 55%); }
+    .wave2{ background: radial-gradient(1200px 260px at 30% 50%, rgba(0,175,255,.35), transparent 55%),
+                            radial-gradient(800px 240px at 85% 55%, rgba(255,0,76,.25), transparent 60%);
+            animation-duration: 10s; animation-delay: -.5s; mix-blend-mode:screen;}
+    @keyframes float{
+      0%{ transform: translateY(-2%) rotate(6deg) }
+      100%{ transform: translateY(2%) rotate(10deg) }
+    }
+    .grid{display:grid; gap:16px; grid-template-columns:repeat(3,1fr); margin-top:24px}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px; padding:16px; text-decoration:none; color:inherit;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .card:hover{ transform: translateY(-2px); border-color: rgba(0,175,255,.45);
+                 background: linear-gradient(180deg, rgba(0,175,255,.08), rgba(255,255,255,.02)); }
+    .icon{width:38px; height:38px; border-radius:12px; display:grid; place-items:center;
+          background: rgba(0,175,255,.18); border:1px solid rgba(0,175,255,.35); margin-bottom:10px}
+    h3{margin:0 0 6px; font-size:18px}
+    p{margin:0}
+    footer{margin-top:80px; border-top:1px solid rgba(255,255,255,.06); opacity:.9}
+    footer .inner{display:flex; align-items:center; justify-content:space-between; padding:18px 0}
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr; gap:28px; padding:72px 0 60px}
+      .grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 640px){
+      .grid{grid-template-columns:1fr}
+    }
+    svg#swirl{filter: drop-shadow(0 6px 24px rgba(0,175,255,.55));}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <span class="mark">
+          <svg id="swirl" width="36" height="36" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ff004c"/>
+                <stop offset="1" stop-color="#00afff"/>
+              </linearGradient>
+            </defs>
+            <circle cx="32" cy="32" r="20" stroke="url(#g1)" stroke-width="6" opacity=".9"/>
+            <path d="M20 34c4 7 12 12 22 12" stroke="#00afff" stroke-width="6" fill="none" stroke-linecap="round" opacity=".9"/>
+            <path d="M28 18c8 0 14 6 14 14" stroke="#ff004c" stroke-width="6" fill="none" stroke-linecap="round" opacity=".9"/>
+          </svg>
+        </span>
+        <span class="word">Parlios</span>
+      </a>
+      <nav>
+        <a href="#">Accueil</a>
+        <a href="#">Outils</a>
+        <a href="#">À propos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Optimise ton temps. Libère ton potentiel.</h1>
+        <p class="lead">Parlios réunit les meilleurs outils d’IA pour t’aider à gagner du temps, à rester concentré, et à développer ton activité sans te perdre dans la technique.</p>
+        <div class="cta">
+          <a class="btn primary" href="#">Explorer les outils</a>
+          <a class="btn secondary" href="#">Comprendre la vision</a>
+        </div>
+      </div>
+      <div class="panel" aria-hidden="true">
+        <div class="wave"></div>
+        <div class="wave2"></div>
+        <div style="position:relative; padding:14px; border-radius:12px; border:1px dashed rgba(255,255,255,.12)">
+          <p style="margin:0 0 6px; color:#e9e7ff">Aperçu visuel — thème <strong>rouge & bleu néon</strong></p>
+          <p style="margin:0; color:var(--muted)">Contraste fort, halo lumineux et fluidité : un équilibre entre puissance et clarté.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="font-size:22px; margin:0 0 10px">Les 3 outils actifs</h2>
+      <div class="grid">
+        <a class="card" href="#">
+          <div class="icon"></div>
+          <h3>AI Bio Booster</h3>
+          <p>Optimise ta bio LinkedIn/Twitter en 30 secondes.</p>
+        </a>
+        <a class="card" href="#">
+          <div class="icon"></div>
+          <h3>Headline Wizard</h3>
+          <p>Génère des titres à fort CTR, prêts à poster.</p>
+        </a>
+        <a class="card" href="#">
+          <div class="icon"></div>
+          <h3>Smart Summary</h3>
+          <p>Résume un texte et propose des actions.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container inner">
+      <small>© <span id="y"></span> Parlios — IA au service du temps humain.</small>
+      <a class="btn secondary" href="#">Tester un outil</a>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
