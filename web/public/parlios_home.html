@@ -550,16 +550,27 @@ a { color: inherit; text-decoration: none; }
     <div class="footer">Prototype statique â€” version publique (utilisation uniquement)</div>
 
   </div>
+
 <script>
   const fab = document.getElementById("fabMenu");
   const panel = document.getElementById("mobilePanel");
 
+  let open = false;
+
   fab.addEventListener("click", () => {
+    open = !open;
     panel.classList.toggle("active");
+    fab.innerHTML = open ? "✕" : "☰";
+    fab.style.transform = open ? "scale(1.05)" : "scale(1)";
   });
 
   panel.addEventListener("click", (e) => {
-    if (e.target === panel) panel.classList.remove("active");
+    if (e.target === panel) {
+      panel.classList.remove("active");
+      open = false;
+      fab.innerHTML = "☰";
+      fab.style.transform = "scale(1)";
+    }
   });
 </script>
 </body>
@@ -623,6 +634,7 @@ a { color: inherit; text-decoration: none; }
   0% { transform: translateX(0px); opacity: 0.85; }
   100% { transform: translateX(-40px); opacity: 1; }
 }
+
 
 
 
