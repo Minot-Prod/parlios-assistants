@@ -155,11 +155,83 @@ a { color: inherit; text-decoration: none; }
 .kicker { color: #a5a9b2; font-weight: 600; text-transform: uppercase; letter-spacing: .2px; font-size: 11px; }
 .similaires { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; }
 @media (max-width: 880px){ .similaires { grid-template-columns: 1fr; } }
+/* ---------------- NAVBAR GLASS ARC ---------------- */
+.navbar-glass {
+  position: sticky;
+  top: 22px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px;
+  margin: 0 auto 32px;
+  width: fit-content;
+  gap: 28px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow:
+    0 4px 25px rgba(0,0,0,0.35),
+    0 0 40px rgba(139,92,246,0.15),
+    inset 0 0 12px rgba(255,255,255,0.05);
+}
+.navbar-glass .nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text);
+}
+.navbar-glass .nav-logo .badge {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+.navbar-glass .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.navbar-glass .nav-links a {
+  font-size: 14px;
+  color: var(--muted);
+  transition: 0.2s;
+}
+.navbar-glass .nav-links a:hover {
+  color: var(--text);
+}
+.navbar-glass .nav-cta {
+  padding: 9px 14px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #0b0c0e;
+}
 </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="container"><nav class="navbar-glass">
+  <div class="nav-logo">
+    <div class=""badge"">P</div>
+    Parlios
+  </div>
+  <div class=""nav-links"">
+    <a href=""#catalogue"">Catalogue</a>
+    <a href=""#how"">Fonctionnement</a>
+    <a href=""#about"">À propos</a>
+  </div>
+  <a class=""nav-cta"" href=""#catalogue"">Commencer</a>
+</nav>
     
     <!-- Header -->
     <div class="header">
@@ -362,4 +434,5 @@ a { color: inherit; text-decoration: none; }
   0% { transform: translateX(0px); opacity: 0.85; }
   100% { transform: translateX(-40px); opacity: 1; }
 }
+
 
