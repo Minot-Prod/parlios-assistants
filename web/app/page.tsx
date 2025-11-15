@@ -1,10 +1,13 @@
-﻿import { readFileSync } from "node:fs";
-import path from "node:path";
+﻿"use client";
 
-export const dynamic = "force-static";
+import * as React from "react";
+import AppShell from "../components/layout/AppShell";
+import HeroNeon from "../components/HeroNeon";
 
-export default function Page() {
-  const html = readFileSync(path.join(process.cwd(), "public", "parlios_home.html"), "utf8");
-  return <div dangerouslySetInnerHTML={{ __html: html }} />;
+export default function HomePage() {
+  return (
+    <AppShell>
+      <HeroNeon />
+    </AppShell>
+  );
 }
-
