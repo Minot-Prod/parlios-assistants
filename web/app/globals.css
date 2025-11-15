@@ -53,3 +53,90 @@ header.site{position:sticky; top:0; z-index:50; background:rgba(5,5,8,.45);
 footer.site{margin-top:var(--s16); padding:var(--s6) 0; border-top:1px solid rgba(255,255,255,.06); opacity:.9}
 @media (max-width:960px){.hero{grid-template-columns:1fr; gap:var(--s8); padding:var(--s12) 0 var(--s10)} .grid{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.grid{grid-template-columns:1fr}}
+
+/* ===== Parlios — Theme ===== */
+:root{
+  --parlios-bg: #0b1020;
+  --parlios-surface: #12182a;
+  --parlios-border: rgba(255,255,255,.07);
+  --parlios-text: #e6e9f2;
+  --parlios-muted: #b4bdd6;
+  --parlios-primary: #22d3ee;   /* cyan */
+  --parlios-accent:  #a78bfa;   /* violet */
+  --parlios-success: #34d399;   /* green */
+  --parlios-danger:  #f87171;   /* red */
+}
+html{ color-scheme: dark; }
+body{
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(34,211,238,.10), transparent 60%),
+    radial-gradient(900px 400px at 90% 10%, rgba(167,139,250,.10), transparent 60%),
+    var(--parlios-bg);
+  color: var(--parlios-text);
+}
+.container{ max-width: 1200px; margin: 0 auto; padding: 24px; }
+.card{
+  background: var(--parlios-surface);
+  border: 1px solid var(--parlios-border);
+  border-radius: 14px; padding: 18px;
+}
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 14px; border-radius:10px; font-weight:600;
+  background: linear-gradient(90deg, var(--parlios-primary), var(--parlios-accent));
+  color:#0b1020; border:0;
+}
+.btn:disabled{ opacity:.6; cursor:not-allowed; }
+.input, textarea, select{
+  background:#0e1426; color:var(--parlios-text);
+  border:1px solid var(--parlios-border); border-radius:10px; padding:10px 12px;
+}
+a{ color: var(--parlios-primary); }
+hr{ border-color: var(--parlios-border); }
+/* ===== Fin Theme ===== */
+"
+
+# 6) SEO & métadonnées (layout Next)
+Set-Content -Encoding UTF8 -Path .\web\app\layout.tsx -Value @"
+import './globals.css';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Parlios — Outils IA gratuits',
+  description: 'Des outils IA prêts à l’emploi, rapides et gratuits : choisissez, utilisez, c’est tout.',
+  metadataBase: new URL('https://www.parlios.fr'),
+  openGraph: {
+    title: 'Parlios — Outils IA gratuits',
+    description: 'Des outils IA prêts à l’emploi, rapides et gratuits.',
+    url: 'https://www.parlios.fr',
+    siteName: 'Parlios',
+    images: [{ url: '/og-image.svg', width: 1200, height: 630, alt: 'Parlios' }],
+    type: 'website',
+    locale: 'fr_FR'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Parlios — Outils IA gratuits',
+    description: 'Des outils IA prêts à l’emploi, rapides et gratuits.',
+    images: ['/og-image.svg']
+  }
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang='fr'>
+      <body>{children}</body>
+    </html>
+  );
+}
+"
+
+# 7) Back-end : stubs propres UTF‑8 (éviter réponses vides) — déjà OK mais on réécrit au propre
+Set-Content -Encoding UTF8 -Path .\web\netlify\functions\acquisition-engine.js -Value @"
+exports.handler = async function () {
+  return {
+    statusCode: 200,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ok: false, error: 'Fonction non implémentée côté serveur.' })
+  };
+};

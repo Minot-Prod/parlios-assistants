@@ -1,7 +1,7 @@
-﻿exports.handler = async function (event, context) {
+﻿exports.handler = async function () {
   return {
     statusCode: 200,
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ok: false, error: "Fonction non implémentée côté serveur." })
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ok: false, error: 'Fonction non implémentée côté serveur.' })
   };
 };
