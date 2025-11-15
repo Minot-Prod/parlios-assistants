@@ -2,60 +2,203 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <title>calendrier-social-ia – Parlios</title>
+  <title>Agent Calendrier Social IA – Parlios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    :root {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+    }
     body {
       margin: 0;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #020617;
-      color: #e5e7eb;
-    }
-    .wrap {
-      padding: 2rem 2.5rem;
-      border-radius: 1.25rem;
-      border: 1px solid rgba(148,163,184,0.5);
       background:
         radial-gradient(circle at top, rgba(56,189,248,0.14), transparent 55%),
         #020617;
-      box-shadow: 0 18px 60px rgba(15,23,42,0.9);
-      max-width: 640px;
-      width: min(100% - 2rem, 640px);
+      padding: 2.5rem 1.5rem;
     }
-    h1 {
-      margin: 0 0 0.75rem;
-      font-size: 1.4rem;
+    .shell {
+      width: min(100%, 720px);
+      border-radius: 1.4rem;
+      border: 1px solid rgba(148,163,184,0.6);
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,0.16), transparent 55%),
+        rgba(15,23,42,0.98);
+      box-shadow: 0 20px 70px rgba(15,23,42,0.9);
+      padding: 2rem 2.2rem 2.3rem;
     }
-    p {
-      margin: 0 0 1.5rem;
-      font-size: 0.95rem;
-      color: #9ca3af;
-    }
-    a {
+    .chip {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      padding: 0.55rem 1.1rem;
+      padding: 0.2rem 0.7rem;
       border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.8);
-      text-decoration: none;
+      border: 1px solid rgba(52,211,153,0.8);
+      background: rgba(6,95,70,0.7);
+      font-size: 0.75rem;
+      color: #a7f3d0;
+      margin-bottom: 0.6rem;
+    }
+    h1 {
+      margin: 0 0 0.4rem;
+      font-size: 1.5rem;
+    }
+    .subtitle {
+      margin: 0 0 1.3rem;
+      font-size: 0.92rem;
+      color: #9ca3af;
+    }
+    form {
+      display: grid;
+      gap: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    label {
+      font-size: 0.85rem;
+      font-weight: 500;
       color: #e5e7eb;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .hint {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      margin-top: 0.15rem;
+    }
+    input[type="text"],
+    select,
+    textarea {
+      width: 100%;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(55,65,81,0.9);
+      background: rgba(15,23,42,0.9);
+      color: #e5e7eb;
+      padding: 0.55rem 0.7rem;
       font-size: 0.9rem;
+      outline: none;
+    }
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+    input::placeholder,
+    textarea::placeholder {
+      color: #6b7280;
+    }
+    button[type="submit"] {
+      margin-top: 0.4rem;
+      padding: 0.65rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(52,211,153,0.9);
+      background:
+        radial-gradient(circle at top left, rgba(52,211,153,0.28), transparent 55%),
+        rgba(6,95,70,0.9);
+      color: #ecfeff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+    }
+    button[type="submit"]:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+    .status {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      min-height: 1.1rem;
+      margin-top: 0.3rem;
+    }
+    .result-box {
+      border-radius: 0.9rem;
+      border: 1px solid rgba(55,65,81,0.9);
+      background: rgba(15,23,42,0.9);
+      padding: 0.9rem 1rem;
+      font-size: 0.86rem;
+      color: #e5e7eb;
+      white-space: pre-wrap;
+      max-height: 320px;
+      overflow: auto;
+    }
+    .back-link {
+      margin-top: 1rem;
+      font-size: 0.82rem;
+    }
+    .back-link a {
+      color: #a5b4fc;
+      text-decoration: none;
+    }
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .shell {
+        padding: 1.6rem 1.4rem 2rem;
+        border-radius: 1.1rem;
+      }
     }
   </style>
+  <script src="./script.js" defer></script>
 </head>
 <body>
-  <div class="wrap">
-    <h1>calendrier-social-ia</h1>
-    <p>
-      Cet assistant est en cours de câblage dans Parlios.
-      Tu peux déjà revenir au hub pour utiliser les autres outils.
+  <div class="shell">
+    <div class="chip">
+      <span>🧠 Agent Calendrier Social IA</span>
+      <span>• Contenu</span>
+    </div>
+    <h1>Planifie 30 jours de contenu en quelques questions</h1>
+    <p class="subtitle">
+      Donne à l’agent ta niche, ta plateforme principale et ton objectif.
+      Il te renverra un calendrier de posts prêt à l’emploi.
     </p>
-    <a href="/">← Retour au hub Parlios</a>
+
+    <form id="calendar-form">
+      <div>
+        <label for="niche">Ta niche / ton activité</label>
+        <textarea id="niche" name="niche" placeholder="Ex : coach business pour freelances, e-commerce cosmétique bio…"></textarea>
+        <div class="hint">Sois concret, l’agent adapte le ton et les idées à ton contexte.</div>
+      </div>
+
+      <div>
+        <label for="platform">Plateforme principale</label>
+        <input id="platform" name="platform" type="text" placeholder="Ex : Instagram, LinkedIn, TikTok…" />
+      </div>
+
+      <div>
+        <label for="tone">Ton & style de contenu</label>
+        <input id="tone" name="tone" type="text" placeholder="Ex : pédagogique, cash, humoristique, premium…" />
+      </div>
+
+      <div>
+        <label for="frequency">Fréquence souhaitée</label>
+        <input id="frequency" name="frequency" type="text" placeholder="Ex : 3 posts / semaine pendant 4 semaines" />
+      </div>
+
+      <div>
+        <label for="goal">Objectif principal</label>
+        <textarea id="goal" name="goal" placeholder="Ex : générer des leads qualifiés, vendre ma formation, remplir mon calendrier de RDV…"></textarea>
+      </div>
+
+      <button type="submit">
+        <span>Générer mon calendrier</span>
+        <span>↻</span>
+      </button>
+      <div id="status" class="status"></div>
+    </form>
+
+    <div id="result" class="result-box">
+      Remplis le formulaire ci-dessus et l’agent te renverra ici un plan de contenu structuré.
+    </div>
+
+    <div class="back-link">
+      ← <a href="/">Revenir au hub des agents Parlios</a>
+    </div>
   </div>
 </body>
 </html>
