@@ -3,3 +3,4 @@ https://parlios.ca/*     https://www.parlios.fr/:splat 301!
 https://www.parlios.ca/* https://www.parlios.fr/:splat 301!
 /tools/ai-bio /tools/ai-bio-booster/index.html 200
 / /web/public/parlios_home.html 200
+/index.html /web/public/parlios_home.html 301
