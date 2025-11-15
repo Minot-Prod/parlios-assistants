@@ -1,9 +1,9 @@
-[build]
-  command = "cd web && npm install && npm run build"
-  publish = "web/.next"
+﻿[build]
+  command = "cd web && npm ci && npm run export"
+  publish = "web/out"
   functions = "web/netlify/functions"
 
-# 4 assistants IA principaux (URL marketing qui redirigent vers les pages Next)
+# Redirects marketing
 [[redirects]]
   from = "/script-de-vente"
   to = "/tools/sales-master"
@@ -23,22 +23,3 @@
   from = "/acquisition-engine"
   to = "/tools/acquisition-engine"
   status = 200
-
-# Sécurité domaine
-[[redirects]]
-  from = "https://parlios.fr/*"
-  to = "https://www.parlios.fr/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://parlios.ca/*"
-  to = "https://www.parlios.fr/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://www.parlios.ca/*"
-  to = "https://www.parlios.fr/:splat"
-  status = 301
-  force = true
