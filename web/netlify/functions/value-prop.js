@@ -1,35 +1,11 @@
-/**
- * Netlify function for the "value-prop" tool.
- *
- * Accepts a POST request with JSON containing a "prompt" and optional "tone".
- * Generates a simple proposition de valeur. Replace the placeholder
- * generation logic with calls to an AI service for real use.
- */
-exports.handler = async function (event) {
-  if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ ok: false, error: 'Method Not Allowed' })
-    };
-  }
-  try {
-    const { prompt, tone } = JSON.parse(event.body || '{}');
-    if (!prompt || typeof prompt !== 'string') {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ ok: false, error: 'Missing or invalid "prompt"' })
-      };
-    }
-    // Placeholder generation logic. Replace with actual AI call.
-    const output = `Proposition de valeur générée pour "${prompt}" avec le ton ${tone || 'neutre'}.`;
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ ok: true, output })
-    };
-  } catch (err) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ ok: false, error: err.message || 'Unexpected error' })
-    };
-  }
+const { callOpenAI, json, preflight } = require("./_lib/llm");
+exports.handler = async (event) => {
+  if(event.httpMethod==="OPTIONS") return preflight();
+  try{
+    const { prompt="", tone="pro" } = JSON.parse(event.body||"{}");
+    const system = "Tu es PMM. Rédige une proposition de valeur claire (Problème, Promesse, Preuves, CTA).";
+    const user   = `Données: ${prompt}\nTon: ${tone}\nFormat: sections courtes (markdown).`;
+    const out = await callOpenAI({ system, prompt:user, max_tokens:500 });
+    return json(200,{ ok:true, output:out });
+  }catch(e){ return json(500,{ ok:false, error:String(e.message||e) }); }
 };

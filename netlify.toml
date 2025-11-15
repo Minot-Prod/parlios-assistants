@@ -1,42 +1,41 @@
-﻿[build]
-  command = "cd web && npm ci && npm run export"
-  publish = "web/out"
+[build]
+  command   = "cd web && npm ci && npm run export"
+  publish   = "web/out"
   functions = "web/netlify/functions"
 
-# Caching agressif pour les assets fingerprintés
+[build.environment]
+  NODE_VERSION = "20"
+
 [[headers]]
   for = "/_next/static/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Sécurité par défaut
 [[headers]]
   for = "/*"
   [headers.values]
     X-Content-Type-Options = "nosniff"
-    X-Frame-Options = "DENY"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    X-Frame-Options        = "DENY"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "geolocation=(), microphone=(), camera=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-    Content-Security-Policy = "default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://www.parlios.fr https://api.openai.com; font-src 'self' data:;"
 
-# Redirects marketing
 [[redirects]]
   from = "/script-de-vente"
-  to = "/tools/sales-master"
+  to   = "/tools/sales-master"
   status = 200
 
 [[redirects]]
   from = "/studio-pub-ia"
-  to = "/tools/content-studio"
+  to   = "/tools/content-studio"
   status = 200
 
 [[redirects]]
   from = "/optimiseur-tunnel"
-  to = "/tools/launch-factory"
+  to   = "/tools/launch-factory"
   status = 200
 
 [[redirects]]
   from = "/acquisition-engine"
-  to = "/tools/acquisition-engine"
+  to   = "/tools/acquisition-engine"
   status = 200

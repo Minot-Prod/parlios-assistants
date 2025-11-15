@@ -1,25 +1,25 @@
-{
-  "name": "parlios-site",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "cross-env PORT=3000 next dev",
-    "build": "next build",
-    "start": "next start -p 3000",
-    "deploy:preview": "netlify deploy --build --alias preview",
-    "deploy:prod": "netlify deploy --build --prod",
-    "export": "next build && next export"
-  },
-  "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
-  },
-  "devDependencies": {
-    "@netlify/plugin-nextjs": "latest",
-    "@types/node": "24.10.0",
-    "@types/react": "19.2.2",
-    "cross-env": "^10.1.0",
-    "typescript": "5.9.3"
-  }
+﻿{
+    "name":  "parlios-site",
+    "version":  "1.0.0",
+    "private":  true,
+    "scripts":  {
+                    "dev":  "cross-env PORT=3000 next dev",
+                    "build":  "next build",
+                    "start":  "next start -p 3000",
+                    "deploy:preview":  "netlify deploy --build --alias preview",
+                    "deploy:prod":  "netlify deploy --build --prod",
+                    "export":  "next build \u0026\u0026 next export"
+                },
+    "dependencies":  {
+                         "next":  "latest",
+                         "react":  "latest",
+                         "react-dom":  "latest"
+                     },
+    "devDependencies":  {
+                            "@netlify/plugin-nextjs":  "latest",
+                            "@types/node":  "24.10.0",
+                            "@types/react":  "19.2.2",
+                            "cross-env":  "^10.1.0",
+                            "typescript":  "5.9.3"
+                        }
 }
