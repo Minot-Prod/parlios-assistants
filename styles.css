@@ -44,3 +44,25 @@
     transform: translateY(-2px);
 }
 
+.hero-parlios {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-parlios-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top left, rgba(116, 66, 245, 0.45) 0, transparent 55%),
+        radial-gradient(circle at bottom right, rgba(255, 92, 135, 0.35) 0, transparent 55%),
+        url("/parlios/ui/backgrounds/wave-01.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+    z-index: 0;
+}
+
+.hero-parlios-inner {
+    position: relative;
+    z-index: 1;
+}
