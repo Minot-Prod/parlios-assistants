@@ -1,0 +1,335 @@
+
+/* === HERO PARLIOS === */
+
+
+/* === HERO PARLIOS === */
+.hero-parlios {
+    width: 100%;
+    padding: 120px 0;
+    background: linear-gradient(135deg, #0a0f24 0%, #111b42 50%, #0a0f24 100%);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero-parlios h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #4ac7ff, #8a7bff, #d66bff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-parlios p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+.hero-parlios .cta-btn {
+    margin-top: 30px;
+    padding: 14px 32px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    background: #6c5ce7;
+    color: white;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.hero-parlios .cta-btn:hover {
+    background: #8b75ff;
+    transform: translateY(-2px);
+}
+
+.hero-parlios {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-parlios-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top left, rgba(116, 66, 245, 0.45) 0, transparent 55%),
+        radial-gradient(circle at bottom right, rgba(255, 92, 135, 0.35) 0, transparent 55%),
+        url("/parlios/ui/backgrounds/wave-01.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+    z-index: 0;
+}
+
+.hero-parlios-inner {
+    position: relative;
+    z-index: 1;
+}
+.agent-card {
+    background: #0e1224;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 32px;
+    transition: 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.agent-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(120, 70, 255, 0.45);
+    box-shadow: 0 0 22px rgba(120, 70, 255, 0.25);
+}
+
+.agent-card h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #4ac7ff, #8a7bff, #d66bff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.agent-card p {
+    opacity: 0.85;
+    line-height: 1.55;
+}
+
+.agent-card .cta {
+    margin-top: auto;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: #6c5ce7;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.agent-card .cta:hover {
+    background: #8b75ff;
+    transform: translateY(-2px);
+}
+.agents-section {
+    padding: 80px 0;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.agents-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.agents-header h2 {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+}
+
+.agents-header p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+}
+
+.agents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.agent-card {
+    background: #0e1224;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 24px 22px;
+    transition: 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.agent-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: radial-gradient(circle at top left, rgba(120, 70, 255, 0.35), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.agent-card:hover::before {
+    opacity: 1;
+}
+
+.agent-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(120, 70, 255, 0.45);
+    box-shadow: 0 0 22px rgba(120, 70, 255, 0.25);
+}
+
+.agent-card-top h3 {
+    font-size: 1.4rem;
+    margin: 8px 0 10px;
+    background: linear-gradient(90deg, #4ac7ff, #8a7bff, #d66bff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.agent-desc {
+    font-size: 0.98rem;
+    opacity: 0.88;
+}
+
+.agent-meta {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.agent-meta li + li {
+    margin-top: 4px;
+}
+
+.agent-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.24);
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.9;
+}
+
+.agent-badge-hot {
+    border-color: rgba(255, 120, 80, 0.8);
+    color: #ffb89a;
+}
+
+.agent-badge-pro {
+    border-color: rgba(120, 214, 255, 0.8);
+    color: #9adfff;
+}
+
+.agent-bottom {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.agent-cta {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: linear-gradient(120deg, #6c5ce7, #8b75ff);
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.agent-cta:hover {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+}
+
+.agent-note {
+    font-size: 0.8rem;
+    opacity: 0.75;
+}
+.hero-parlios {
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0 90px;
+}
+
+.hero-parlios-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(120, 70, 255, 0.45), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(76, 201, 240, 0.40), transparent 55%),
+    url('/parlios/ui/backgrounds/wave-01.png') center/cover no-repeat,
+    #050816;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.hero-parlios-inner {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-parlios-main {
+  width: 100%;
+}
+
+.hero-parlios-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.hero-parlios-logo img {
+  max-width: 220px;
+  height: auto;
+  filter: drop-shadow(0 12px 30px rgba(0,0,0,0.7));
+}
+
+/* Optionnel : légère recentrage du contenu pour éviter que ça colle à gauche */
+.hero-parlios-copy {
+  text-align: center;
+}
+
+.hero-parlios-panel {
+  position: relative;
+}
+img[src*="parlios-logo"] {
+    display: block;
+    margin: 0 auto 18px;
+    width: 80px;
+    height: auto;
+}
+
+/* ==== PARLIOS HERO (pro) ============================================== */
+.hero-parlios{position:relative;overflow:hidden;padding:120px 0 90px}
+.hero-parlios-bg{position:absolute;inset:0;background:
+  radial-gradient(circle at top left, rgba(120,70,255,.45), transparent 55%),
+  radial-gradient(circle at bottom right, rgba(76,201,240,.40), transparent 55%),
+  url("/parlios/ui/backgrounds/wave-01.png") center/cover no-repeat,#050816;opacity:.9;pointer-events:none}
+.hero-parlios-inner{position:relative;max-width:1100px;margin:0 auto;padding:0 24px;display:flex;gap:40px;align-items:center}
+.hero-parlios-main{width:100%}
+.hero-parlios-logo{display:flex;justify-content:center;margin-bottom:32px}
+.hero-parlios-logo img{max-width:220px;height:auto;filter:drop-shadow(0 12px 30px rgba(0,0,0,.7))}
+.hero-parlios-copy{text-align:center}
+.hero-parlios-kicker{font-size:.95rem;opacity:.8;margin-bottom:8px}
+.hero-parlios-title{font-size:2.4rem;font-weight:800;margin:6px 0 14px;background:linear-gradient(90deg,#4ac7ff,#8a7bff,#d66bff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-parlios-sub{font-size:1.05rem;opacity:.9;max-width:780px;margin:0 auto}
+.hero-parlios-actions{margin-top:22px;display:flex;flex-direction:column;gap:8px;align-items:center}
+.hero-parlios-cta{display:inline-flex;justify-content:center;align-items:center;padding:12px 22px;border-radius:999px;background:linear-gradient(120deg,#6c5ce7,#8b75ff);color:#fff;text-decoration:none;font-weight:700;transition:.2s}
+.hero-parlios-cta:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.hero-parlios-note{font-size:.82rem;opacity:.7}
+.hero-parlios-panel{position:relative}
+/* ===================================================================== */
