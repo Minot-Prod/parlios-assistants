@@ -1,0 +1,89 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Parlios – Content Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:#020617; color:#f9fafb; }
+    body { margin:0; padding:2rem; display:flex; justify-content:center; }
+    .shell { max-width:900px; width:100%; background:#020617; border-radius:1rem; padding:2rem 2.5rem; box-shadow:0 20px 50px rgba(15,23,42,0.85); border:1px solid rgba(59,130,246,0.4);}
+    h1 { font-size:1.8rem; margin:0 0 0.25rem;}
+    .badge { display:inline-flex; align-items:center; gap:0.35rem; font-size:0.75rem; padding:0.2rem 0.6rem; border-radius:999px; border:1px solid rgba(59,130,246,0.5); background:rgba(30,64,175,0.5); color:#bfdbfe; margin-bottom:0.75rem;}
+    p.lead { margin:0 0 1.5rem; color:#9ca3af; font-size:0.95rem;}
+    label { display:block; font-size:0.85rem; color:#e5e7eb; margin-bottom:0.35rem;}
+    textarea, select, input[type="text"] { width:100%; background:#020617; border-radius:0.75rem; border:1px solid rgba(75,85,99,0.9); padding:0.6rem 0.8rem; color:#f9fafb; font-size:0.9rem; resize:vertical; min-height:90px;}
+    textarea:focus, select:focus, input[type="text"]:focus { outline:none; border-color:#6366f1; box-shadow:0 0 0 1px rgba(129,140,248,0.5);}
+    .row { display:flex; gap:1rem; margin-bottom:1rem;}
+    .row > div { flex:1;}
+    button { border:none; border-radius:999px; padding:0.7rem 1.4rem; font-size:0.95rem; font-weight:600; cursor:pointer; background:linear-gradient(135deg,#6366f1,#4f46e5); color:#e5e7eb; display:inline-flex; align-items:center; gap:0.45rem;}
+    button:disabled { opacity:0.5; cursor:wait;}
+    .status { margin-top:0.5rem; font-size:0.8rem; color:#a5b4fc;}
+    .output { margin-top:1.5rem; padding:1rem 1.1rem; border-radius:0.75rem; background:#020617; border:1px solid rgba(55,65,81,0.9); font-size:0.9rem; white-space:pre-wrap; line-height:1.5;}
+    .hint { font-size:0.75rem; color:#9ca3af; margin-top:0.25rem;}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="badge">
+      <span>🎬</span>
+      <span>Assistant phare Parlios – Content</span>
+    </div>
+    <h1>Content Studio</h1>
+    <p class="lead">
+      Génère des posts calibrés pour les réseaux (LinkedIn, Instagram, X, etc.) 
+      à partir de ton angle, ton audience et ta plateforme.
+    </p>
+
+    <form id="tool-form">
+      <div class="row">
+        <div>
+          <label for="platform">Plateforme</label>
+          <select id="platform" name="platform">
+            <option value="linkedin">LinkedIn</option>
+            <option value="instagram">Instagram / Reels</option>
+            <option value="tiktok">TikTok</option>
+            <option value="x">X (Twitter)</option>
+            <option value="youtube">YouTube (post / script court)</option>
+          </select>
+        </div>
+        <div>
+          <label for="contentType">Format</label>
+          <select id="contentType" name="contentType">
+            <option value="post">Post texte</option>
+            <option value="carousel">Idée de carrousel</option>
+            <option value="hook-list">Liste de hooks</option>
+            <option value="script-short">Script vidéo court</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label for="audience">Audience cible</label>
+        <textarea id="audience" name="audience" placeholder="Ex : freelances débutants dans le digital, 0–3k€/mois, blocages sur la prospection."></textarea>
+      </div>
+
+      <div>
+        <label for="angle">Angle / idée de base</label>
+        <textarea id="angle" name="angle" placeholder="Ex : pourquoi la plupart des freelances fuient le téléphone alors que c’est leur plus gros levier."></textarea>
+      </div>
+
+      <div>
+        <label for="cta">Call-to-action souhaité</label>
+        <input id="cta" name="cta" type="text" placeholder="Ex : commenter un mot clé / cliquer sur un lien / DM toi pour une ressource…" />
+      </div>
+
+      <button type="submit">
+        ✍️ Générer le contenu
+      </button>
+      <div id="status" class="status"></div>
+    </form>
+
+    <section class="output" id="output">
+      Le contenu généré s’affichera ici.
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

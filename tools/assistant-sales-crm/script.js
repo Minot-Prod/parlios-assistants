@@ -5,22 +5,21 @@
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    statusEl.textContent = "⏳ Génération en cours…";
+    statusEl.textContent = "⏳ Génération de la structure CRM…";
     outputEl.textContent = "";
 
-    const payload = {
-      platform: document.getElementById("platform").value,
-      contentType: document.getElementById("contentType").value,
-      audience: document.getElementById("audience").value,
-      angle: document.getElementById("angle").value,
-      cta: document.getElementById("cta").value
+    const fields = {
+      businessType: document.getElementById("businessType").value,
+      leadVolume: document.getElementById("leadVolume").value,
+      currentTool: document.getElementById("currentTool").value,
+      currentProcess: document.getElementById("currentProcess").value
     };
 
     try {
-      const res = await fetch("/.netlify/functions/content-studio", {
+      const res = await fetch("/.netlify/functions/tool-hub", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({ toolId: "assistant-sales-crm", fields })
       });
 
       if (!res.ok) {
@@ -31,7 +30,7 @@
       }
 
       const data = await res.json();
-      statusEl.textContent = "✅ Contenu généré";
+      statusEl.textContent = "✅ Structure CRM générée";
       outputEl.textContent = data.result || "(Réponse vide)";
     } catch (err) {
       console.error(err);

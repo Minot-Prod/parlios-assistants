@@ -5,22 +5,21 @@
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    statusEl.textContent = "⏳ Génération en cours…";
+    statusEl.textContent = "⏳ Génération du calendrier…";
     outputEl.textContent = "";
 
-    const payload = {
-      platform: document.getElementById("platform").value,
-      contentType: document.getElementById("contentType").value,
+    const fields = {
       audience: document.getElementById("audience").value,
-      angle: document.getElementById("angle").value,
-      cta: document.getElementById("cta").value
+      platforms: document.getElementById("platforms").value,
+      goal: document.getElementById("goal").value,
+      tone: document.getElementById("tone").value
     };
 
     try {
-      const res = await fetch("/.netlify/functions/content-studio", {
+      const res = await fetch("/.netlify/functions/tool-hub", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({ toolId: "calendrier-social-ia", fields })
       });
 
       if (!res.ok) {
@@ -31,7 +30,7 @@
       }
 
       const data = await res.json();
-      statusEl.textContent = "✅ Contenu généré";
+      statusEl.textContent = "✅ Calendrier généré";
       outputEl.textContent = data.result || "(Réponse vide)";
     } catch (err) {
       console.error(err);

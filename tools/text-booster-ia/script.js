@@ -8,19 +8,17 @@
     statusEl.textContent = "⏳ Génération en cours…";
     outputEl.textContent = "";
 
-    const payload = {
-      platform: document.getElementById("platform").value,
-      contentType: document.getElementById("contentType").value,
-      audience: document.getElementById("audience").value,
-      angle: document.getElementById("angle").value,
-      cta: document.getElementById("cta").value
+    const fields = {
+      textType: document.getElementById("textType").value,
+      context: document.getElementById("context").value,
+      tone: document.getElementById("tone").value
     };
 
     try {
-      const res = await fetch("/.netlify/functions/content-studio", {
+      const res = await fetch("/.netlify/functions/tool-hub", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({ toolId: "text-booster-ia", fields })
       });
 
       if (!res.ok) {
@@ -31,7 +29,7 @@
       }
 
       const data = await res.json();
-      statusEl.textContent = "✅ Contenu généré";
+      statusEl.textContent = "✅ Texte généré";
       outputEl.textContent = data.result || "(Réponse vide)";
     } catch (err) {
       console.error(err);

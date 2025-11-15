@@ -1,0 +1,93 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Parlios – Sales Master</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:#050816; color:#f9fafb; }
+    body { margin:0; padding:2rem; display:flex; justify-content:center; }
+    .shell { max-width:900px; width:100%; background:#020617; border-radius:1rem; padding:2rem 2.5rem; box-shadow:0 20px 50px rgba(15,23,42,0.8); border:1px solid rgba(148,163,184,0.3);}
+    h1 { font-size:1.8rem; margin:0 0 0.25rem; }
+    .badge { display:inline-flex; align-items:center; gap:0.35rem; font-size:0.75rem; padding:0.2rem 0.6rem; border-radius:999px; border:1px solid rgba(52,211,153,0.3); background:rgba(22,163,74,0.1); color:#6ee7b7; margin-bottom:0.75rem;}
+    .badge span { font-size:0.9rem; }
+    p.lead { margin:0 0 1.5rem; color:#9ca3af; font-size:0.95rem;}
+    label { display:block; font-size:0.85rem; color:#e5e7eb; margin-bottom:0.35rem; }
+    textarea, select, input[type="text"] { width:100%; background:#020617; border-radius:0.75rem; border:1px solid rgba(75,85,99,0.8); padding:0.6rem 0.8rem; color:#f9fafb; font-size:0.9rem; resize:vertical; min-height:90px;}
+    textarea:focus, select:focus, input[type="text"]:focus { outline:none; border-color:#38bdf8; box-shadow:0 0 0 1px rgba(56,189,248,0.4);}
+    .row { display:flex; gap:1rem; margin-bottom:1rem;}
+    .row > div { flex:1;}
+    button { border:none; border-radius:999px; padding:0.7rem 1.4rem; font-size:0.95rem; font-weight:600; cursor:pointer; background:linear-gradient(135deg,#22c55e,#16a34a); color:#022c22; display:inline-flex; align-items:center; gap:0.45rem; }
+    button:disabled { opacity:0.5; cursor:wait;}
+    .status { margin-top:0.5rem; font-size:0.8rem; color:#a5b4fc;}
+    .output { margin-top:1.5rem; padding:1rem 1.1rem; border-radius:0.75rem; background:#020617; border:1px solid rgba(55,65,81,0.9); font-size:0.9rem; white-space:pre-wrap; line-height:1.5;}
+    .hint { font-size:0.75rem; color:#9ca3af; margin-top:0.25rem;}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="badge">
+      <span>⚡</span>
+      <span>Assistant phare Parlios – Sales</span>
+    </div>
+    <h1>Sales Master</h1>
+    <p class="lead">
+      Génère des messages de vente propres, adaptés à ton offre et à ton prospect 
+      (email, DM, follow-up, script d’appel…).
+    </p>
+
+    <form id="tool-form">
+      <div class="row">
+        <div>
+          <label for="format">Type de message</label>
+          <select id="format" name="format">
+            <option value="email">Email de prospection</option>
+            <option value="followup">Relance / follow-up</option>
+            <option value="dm">DM (LinkedIn / Instagram)</option>
+            <option value="call">Script d’appel</option>
+            <option value="generic">Autre (texte libre)</option>
+          </select>
+          <div class="hint">Ce que tu veux envoyer concrètement.</div>
+        </div>
+        <div>
+          <label for="tone">Tonalité</label>
+          <select id="tone" name="tone">
+            <option value="pro">Pro propre, direct</option>
+            <option value="warm">Chaleureux mais pro</option>
+            <option value="punchy">Punchy / agressif soft</option>
+            <option value="ultra-short">Ultra court / snackable</option>
+          </select>
+          <div class="hint">Style global du message.</div>
+        </div>
+      </div>
+
+      <div>
+        <label for="offer">Ton offre (1 phrase ou bullet points)</label>
+        <textarea id="offer" name="offer" placeholder="Ex : Coaching pour freelances pour doubler leur CA en 90 jours, avec suivi 1:1, templates, CRM…"></textarea>
+      </div>
+
+      <div>
+        <label for="prospect">Profil du prospect</label>
+        <textarea id="prospect" name="prospect" placeholder="Ex : CEO d’agence marketing 5–10 personnes, déjà débordé, veut stabiliser son acquisition sans rajouter de charge."></textarea>
+        <div class="hint">Plus tu es précis, plus Sales Master est chirurgical.</div>
+      </div>
+
+      <div>
+        <label for="goal">Objectif du message</label>
+        <input id="goal" name="goal" type="text" placeholder="Ex : décrocher un call de 20 minutes / obtenir une réponse / envoyer une ressource gratuite…" />
+      </div>
+
+      <button type="submit">
+        🚀 Générer le message
+      </button>
+      <div id="status" class="status"></div>
+    </form>
+
+    <section class="output" id="output">
+      Le résultat généré s’affichera ici.
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -5,22 +5,21 @@
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    statusEl.textContent = "⏳ Génération en cours…";
+    statusEl.textContent = "⏳ Analyse en cours…";
     outputEl.textContent = "";
 
-    const payload = {
-      platform: document.getElementById("platform").value,
-      contentType: document.getElementById("contentType").value,
-      audience: document.getElementById("audience").value,
-      angle: document.getElementById("angle").value,
-      cta: document.getElementById("cta").value
+    const fields = {
+      businessType: document.getElementById("businessType").value,
+      period: document.getElementById("period").value,
+      rawData: document.getElementById("rawData").value,
+      goal: document.getElementById("goal").value
     };
 
     try {
-      const res = await fetch("/.netlify/functions/content-studio", {
+      const res = await fetch("/.netlify/functions/tool-hub", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({ toolId: "rapporteur-performance", fields })
       });
 
       if (!res.ok) {
@@ -31,7 +30,7 @@
       }
 
       const data = await res.json();
-      statusEl.textContent = "✅ Contenu généré";
+      statusEl.textContent = "✅ Rapport généré";
       outputEl.textContent = data.result || "(Réponse vide)";
     } catch (err) {
       console.error(err);

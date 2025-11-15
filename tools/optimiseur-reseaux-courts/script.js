@@ -5,22 +5,21 @@
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    statusEl.textContent = "⏳ Génération en cours…";
+    statusEl.textContent = "⏳ Génération des scripts…";
     outputEl.textContent = "";
 
-    const payload = {
+    const fields = {
       platform: document.getElementById("platform").value,
-      contentType: document.getElementById("contentType").value,
       audience: document.getElementById("audience").value,
-      angle: document.getElementById("angle").value,
-      cta: document.getElementById("cta").value
+      topic: document.getElementById("topic").value,
+      style: document.getElementById("style").value
     };
 
     try {
-      const res = await fetch("/.netlify/functions/content-studio", {
+      const res = await fetch("/.netlify/functions/tool-hub", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({ toolId: "optimiseur-reseaux-courts", fields })
       });
 
       if (!res.ok) {
@@ -31,7 +30,7 @@
       }
 
       const data = await res.json();
-      statusEl.textContent = "✅ Contenu généré";
+      statusEl.textContent = "✅ Scripts générés";
       outputEl.textContent = data.result || "(Réponse vide)";
     } catch (err) {
       console.error(err);

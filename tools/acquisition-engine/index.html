@@ -1,0 +1,86 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Parlios – Acquisition Engine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:#020617; color:#f9fafb; }
+    body { margin:0; padding:2rem; display:flex; justify-content:center; }
+    .shell { max-width:900px; width:100%; background:#020617; border-radius:1rem; padding:2rem 2.5rem; box-shadow:0 20px 50px rgba(15,23,42,0.9); border:1px solid rgba(45,212,191,0.5);}
+    h1 { font-size:1.8rem; margin:0 0 0.25rem;}
+    .badge { display:inline-flex; align-items:center; gap:0.35rem; font-size:0.75rem; padding:0.2rem 0.6rem; border-radius:999px; border:1px solid rgba(45,212,191,0.7); background:rgba(15,118,110,0.4); color:#99f6e4; margin-bottom:0.75rem;}
+    p.lead { margin:0 0 1.5rem; color:#9ca3af; font-size:0.95rem;}
+    label { display:block; font-size:0.85rem; color:#e5e7eb; margin-bottom:0.35rem;}
+    textarea, select, input[type="text"] { width:100%; background:#020617; border-radius:0.75rem; border:1px solid rgba(75,85,99,0.9); padding:0.6rem 0.8rem; color:#f9fafb; font-size:0.9rem; resize:vertical; min-height:90px;}
+    textarea:focus, select:focus, input[type="text"]:focus { outline:none; border-color:#22c55e; box-shadow:0 0 0 1px rgba(34,197,94,0.4);}
+    .row { display:flex; gap:1rem; margin-bottom:1rem;}
+    .row > div { flex:1;}
+    button { border:none; border-radius:999px; padding:0.7rem 1.4rem; font-size:0.95rem; font-weight:600; cursor:pointer; background:linear-gradient(135deg,#22c55e,#0d9488); color:#022c22; display:inline-flex; align-items:center; gap:0.45rem;}
+    button:disabled { opacity:0.5; cursor:wait;}
+    .status { margin-top:0.5rem; font-size:0.8rem; color:#6ee7b7;}
+    .output { margin-top:1.5rem; padding:1rem 1.1rem; border-radius:0.75rem; background:#020617; border:1px solid rgba(55,65,81,0.9); font-size:0.9rem; white-space:pre-wrap; line-height:1.5;}
+    .hint { font-size:0.75rem; color:#9ca3af; margin-top:0.25rem;}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="badge">
+      <span>📈</span>
+      <span>Assistant phare Parlios – Acquisition</span>
+    </div>
+    <h1>Acquisition Engine</h1>
+    <p class="lead">
+      Génère des idées de canaux, campagnes et actions d’acquisition concrètes 
+      pour faire rentrer du lead et des ventes.
+    </p>
+
+    <form id="tool-form">
+      <div class="row">
+        <div>
+          <label for="stage">Niveau actuel</label>
+          <select id="stage" name="stage">
+            <option value="early">Early (0–2k€/mois)</option>
+            <option value="mid">Intermédiaire (2–10k€/mois)</option>
+            <option value="advanced">Avancé (10k€+ / équipe)</option>
+          </select>
+        </div>
+        <div>
+          <label for="budget">Budget / ressources</label>
+          <select id="budget" name="budget">
+            <option value="time-only">Temps uniquement (no ads)</option>
+            <option value="low-ads">Petit budget ads</option>
+            <option value="mid-ads">Budget ads sérieux</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label for="offer">Offre principale</label>
+        <textarea id="offer" name="offer" placeholder="Ex : accompagnement 1:1 pour dirigeants d’agence pour structurer acquisition + delivery."></textarea>
+      </div>
+
+      <div>
+        <label for="audience">Audience / ICP</label>
+        <textarea id="audience" name="audience" placeholder="Ex : agences SMMA 3–15 personnes basées en France."></textarea>
+      </div>
+
+      <div>
+        <label for="current">Ce que tu fais déjà</label>
+        <textarea id="current" name="current" placeholder="Ex : un peu de LinkedIn, bouche à oreille, pas de cold."></textarea>
+      </div>
+
+      <button type="submit">
+        💡 Générer des idées d’acquisition
+      </button>
+      <div id="status" class="status"></div>
+    </form>
+
+    <section class="output" id="output">
+      Les idées générées s’afficheront ici.
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
