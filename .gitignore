@@ -17,3 +17,9 @@ Thumbs.db
 
 .netlify/
 
+# === Local backups & logs (Parlios) ===
+*.backup-*.html
+*.backup-*.css
+logs.functions-*.txt
+logs.tool-hub-*.txt
+logs.tool-hub-final-*.txt
