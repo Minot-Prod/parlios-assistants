@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <title>Agent Optimiseur d’Emails – Parlios</title>
+  <title>Agent Email – Optimiseur – Parlios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
@@ -22,7 +22,7 @@
       padding: 2.5rem 1.5rem;
     }
     .shell {
-      width: min(100%, 720px);
+      width: min(100%, 780px);
       border-radius: 1.4rem;
       border: 1px solid rgba(148,163,184,0.6);
       background:
@@ -41,15 +41,39 @@
       background: rgba(6,95,70,0.7);
       font-size: 0.75rem;
       color: #a7f3d0;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.8rem;
     }
-    h1 {
-      margin: 0 0 0.4rem;
-      font-size: 1.45rem;
+    .agent-identity {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+    .agent-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      background:
+        radial-gradient(circle at top, rgba(56,189,248,0.3), transparent 55%),
+        #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+    .agent-text-main {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .agent-text-role {
+      font-size: 0.82rem;
+      color: #9ca3af;
+      margin-top: 0.1rem;
     }
     .subtitle {
       margin: 0 0 1.3rem;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: #9ca3af;
     }
     form {
@@ -148,10 +172,18 @@
 <body>
   <div class="shell">
     <div class="chip">
-      <span>📨 Agent Optimiseur d’Emails</span>
+      <span>📨 Agent Email – Optimiseur</span>
       <span>• Email & relances</span>
     </div>
-    <h1>Agent Optimiseur d’Emails</h1>
+
+    <div class="agent-identity">
+      <div class="agent-avatar">📨</div>
+      <div>
+        <div class="agent-text-main">Agent Email – Optimiseur</div>
+        <div class="agent-text-role">Optimise tes emails pour obtenir plus de réponses.</div>
+      </div>
+    </div>
+
     <p class="subtitle">
       Remplis ce brief rapide : l’agent génère ensuite un livrable structuré
       adapté à ton contexte et à ton objectif.
