@@ -114,3 +114,143 @@
     background: #8b75ff;
     transform: translateY(-2px);
 }
+.agents-section {
+    padding: 80px 0;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.agents-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.agents-header h2 {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+}
+
+.agents-header p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+}
+
+.agents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.agent-card {
+    background: #0e1224;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 24px 22px;
+    transition: 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.agent-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: radial-gradient(circle at top left, rgba(120, 70, 255, 0.35), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.agent-card:hover::before {
+    opacity: 1;
+}
+
+.agent-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(120, 70, 255, 0.45);
+    box-shadow: 0 0 22px rgba(120, 70, 255, 0.25);
+}
+
+.agent-card-top h3 {
+    font-size: 1.4rem;
+    margin: 8px 0 10px;
+    background: linear-gradient(90deg, #4ac7ff, #8a7bff, #d66bff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.agent-desc {
+    font-size: 0.98rem;
+    opacity: 0.88;
+}
+
+.agent-meta {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.agent-meta li + li {
+    margin-top: 4px;
+}
+
+.agent-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.24);
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.9;
+}
+
+.agent-badge-hot {
+    border-color: rgba(255, 120, 80, 0.8);
+    color: #ffb89a;
+}
+
+.agent-badge-pro {
+    border-color: rgba(120, 214, 255, 0.8);
+    color: #9adfff;
+}
+
+.agent-bottom {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.agent-cta {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: linear-gradient(120deg, #6c5ce7, #8b75ff);
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.agent-cta:hover {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+}
+
+.agent-note {
+    font-size: 0.8rem;
+    opacity: 0.75;
+}
