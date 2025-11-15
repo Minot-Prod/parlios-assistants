@@ -2,10 +2,8 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <title>Parlios – Assistants IA business</title>
+  <title>Parlios – Bibliothèque d’agents IA business</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Parlios : une collection d’assistants IA prêts à l’emploi pour vendre, marketer et optimiser ton business sans te perdre dans la technique." />
-  <link rel="icon" type="image/png" href="/assets/brand/parlios-logo.png" />
   <style>
     :root {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -30,58 +28,59 @@
         #020617;
       border-radius: 1.5rem;
       border: 1px solid rgba(148,163,184,0.4);
-      padding: 2.2rem 2.5rem 3rem;
+      padding: 2.5rem 2.5rem 3rem;
       box-shadow: 0 24px 80px rgba(15,23,42,0.9);
     }
 
-    /* Header */
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      gap: 1.5rem;
       margin-bottom: 1.8rem;
     }
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.9rem;
     }
     .brand-logo {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: #020617;
-      border: 1px solid rgba(148,163,184,0.7);
+      width: 40px;
+      height: 40px;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: radial-gradient(circle at top, rgba(56,189,248,0.2), transparent 55%), #020617;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
     }
     .brand-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
     }
     .brand-text-title {
-      font-size: 0.95rem;
       font-weight: 600;
+      font-size: 1rem;
     }
     .brand-text-sub {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: #9ca3af;
     }
     .top-cta {
-      font-size: 0.8rem;
-      padding: 0.35rem 0.85rem;
-      border-radius: 999px;
-      border: 1px solid rgba(94,234,212,0.8);
-      background: rgba(15,118,110,0.25);
-      color: #a5f3fc;
-      text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.45rem;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid rgba(148,163,184,0.8);
+      color: #e5e7eb;
+      font-size: 0.85rem;
+      background:
+        radial-gradient(circle at top left, rgba(52,211,153,0.25), transparent 55%),
+        rgba(15,23,42,0.9);
     }
 
     .badge {
@@ -123,6 +122,7 @@
       background: rgba(15,23,42,0.9);
       color: #e5e7eb;
     }
+
     .section-title {
       font-size: 1.1rem;
       font-weight: 600;
@@ -137,12 +137,14 @@
       font-size: 0.8rem;
       font-weight: 500;
     }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 1.1rem;
       margin-bottom: 2.2rem;
     }
+
     .card {
       position: relative;
       border-radius: 0.95rem;
@@ -199,8 +201,11 @@
       background:
         radial-gradient(circle at top left, rgba(52,211,153,0.25), transparent 55%),
         rgba(15,23,42,0.9);
-      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out,
-                  border-color 0.12s ease-out, background 0.12s ease-out;
+      transition:
+        transform 0.12s ease-out,
+        box-shadow 0.12s ease-out,
+        border-color 0.12s ease-out,
+        background 0.12s ease-out;
     }
     .card-cta span.arrow { font-size: 0.85rem; }
     .card-cta:hover {
@@ -237,23 +242,23 @@
         </div>
         <div>
           <div class="brand-text-title">Parlios</div>
-          <div class="brand-text-sub">Assistants IA business pour solopreneurs</div>
+          <div class="brand-text-sub">Bibliothèque d’agents IA business</div>
         </div>
       </div>
       <a href="#catalogue" class="top-cta">
-        <span>Voir tous les assistants</span>
+        <span>Voir tous les agents</span>
         <span>↧</span>
       </a>
     </header>
 
     <div class="badge">
       <span class="emoji">🤖</span>
-      <span>Outils IA business prêts à l’emploi</span>
+      <span>Collection d’agents IA spécialisés pour ton business</span>
     </div>
-    <h1>Tes assistants IA prêts à l’emploi</h1>
+    <h1>Choisis ton agent IA, il s’occupe du reste</h1>
     <p class="subtitle">
-      Choisis un agent, remplis le formulaire, récupère le résultat.
-      Pas de setup, pas de technique : que des raccourcis pour ton business.
+      Chaque carte est un agent spécialisé : tu remplis quelques champs, il exécute la tâche
+      comme un membre de ton équipe, 24/7, sans se plaindre.
     </p>
 
     <div class="pill-row">
@@ -262,62 +267,62 @@
       <div class="pill">🎯 Focalisé business (ventes, marketing, offres)</div>
     </div>
 
-    <!-- 4 assistants principaux -->
-    <section aria-label="Assistants principaux">
+    <!-- 4 agents principaux -->
+    <section aria-label="Agents principaux">
       <div class="section-title">
-        <span>Assistants principaux</span>
-        <span class="label">Les 4 raccourcis à utiliser en priorité</span>
+        <span>Agents principaux</span>
+        <span class="label">Les 4 agents à activer en priorité</span>
       </div>
       <div class="grid">
 
         <article class="card badge-sales">
           <div class="card-cat">VENTES</div>
-          <div class="card-title">Script de Vente IA</div>
+          <div class="card-title">Agent Closer – Script de Vente</div>
           <p class="card-desc">
-            Génère instantanément des messages de vente propres (emails, DM, scripts d’appel)
+            Agent spécialisé en closing : il génère des scripts de vente propres (emails, DM, appels)
             adaptés à ton offre et à ton prospect.
           </p>
           <a href="/script-de-vente" class="card-cta">
-            <span>Essayer le Sales Master</span>
+            <span>Activer l’Agent Closer</span>
             <span class="arrow">↗</span>
           </a>
         </article>
 
         <article class="card badge-marketing">
           <div class="card-cat">MARKETING</div>
-          <div class="card-title">Studio Pub IA</div>
+          <div class="card-title">Agent Ads – Studio Pub IA</div>
           <p class="card-desc">
-            Crée des textes d’annonces calibrés pour Meta, Google, LinkedIn et les réseaux sociaux,
-            en quelques champs.
+            Agent media buyer : il rédige des textes d’annonces calibrés pour Meta, Google,
+            LinkedIn et les réseaux sociaux, en quelques champs.
           </p>
           <a href="/studio-pub-ia" class="card-cta">
-            <span>Générer mes pubs</span>
+            <span>Activer l’Agent Ads</span>
             <span class="arrow">↗</span>
           </a>
         </article>
 
         <article class="card badge-conversion">
           <div class="card-cat">CONVERSION</div>
-          <div class="card-title">Optimiseur de Tunnel</div>
+          <div class="card-title">Agent Funnel – Optimiseur de Tunnel</div>
           <p class="card-desc">
-            Analyse ton tunnel et propose un plan simple par étape, avec les actions concrètes
-            à lancer jour par jour.
+            Agent tunnel de vente : il analyse ton parcours et propose un plan simple par étape,
+            avec des actions concrètes à lancer jour par jour.
           </p>
           <a href="/optimiseur-tunnel" class="card-cta">
-            <span>Analyser mon tunnel</span>
+            <span>Activer l’Agent Funnel</span>
             <span class="arrow">↗</span>
           </a>
         </article>
 
         <article class="card badge-acquisition">
           <div class="card-cat">ACQUISITION</div>
-          <div class="card-title">Acquisition Engine</div>
+          <div class="card-title">Agent Growth – Acquisition Engine</div>
           <p class="card-desc">
-            Génère des idées d’acquisition priorisées (cold, contenu, partenariats, ads)
-            avec une première action concrète à lancer cette semaine.
+            Agent croissance : il génère des idées d’acquisition priorisées (cold, contenu,
+            partenariats, ads) avec une première action concrète à lancer cette semaine.
           </p>
           <a href="/acquisition-engine" class="card-cta">
-            <span>Lancer l’engine</span>
+            <span>Activer l’Agent Growth</span>
             <span class="arrow">↗</span>
           </a>
         </article>
@@ -326,179 +331,179 @@
     </section>
 
     <!-- Catalogue complet -->
-    <section id="catalogue" aria-label="Catalogue assistants IA">
+    <section id="catalogue" aria-label="Catalogue agents IA">
       <div class="section-title">
-        <span>Autres assistants IA business</span>
-        <span class="label">Outils complémentaires pour affiner ton système</span>
+        <span>Autres agents IA business</span>
+        <span class="label">Complète ton système avec des agents spécialisés</span>
       </div>
 
       <div class="grid">
 
         <article class="card card-content">
           <div class="card-cat">CONTENU</div>
-          <div class="card-title">Calendrier Social IA</div>
+          <div class="card-title">Agent Social – Calendrier IA</div>
           <p class="card-desc">
-            Planifie 30 jours de posts avec titres, hooks et idées adaptées à ta niche
-            et à ta plateforme principale.
+            Agent planning contenu : il te prépare 30 jours de posts avec titres, hooks
+            et idées adaptées à ta niche et à ta plateforme principale.
           </p>
           <a href="/calendrier-social-ia" class="card-cta">
-            <span>Créer mon calendrier</span>
+            <span>Activer l’Agent Social</span>
             <span class="arrow">↗</span>
           </a>
         </article>
 
         <article class="card card-kpi">
           <div class="card-cat">DONNÉES</div>
-          <div class="card-title">Rapporteur de Performance</div>
+          <div class="card-title">Agent KPI – Rapporteur de Performance</div>
           <p class="card-desc">
-            Transforme tes chiffres (ventes, leads, taux) en résumé actionnable
-            à partager à ton équipe ou à ton client.
+            Agent reporting : tu lui donnes tes chiffres (ventes, leads, taux) et il
+            les transforme en résumé actionnable à partager à ton équipe ou ton client.
           </p>
           <a href="/rapporteur-performance" class="card-cta">
-            <span>Analyser mes chiffres</span>
+            <span>Activer l’Agent KPI</span>
             <span class="arrow">↗</span>
           </a>
         </article>
 
         <article class="card card-content">
           <div class="card-cat">COPYWRITING</div>
-          <div class="card-title">Text Booster IA</div>
+          <div class="card-title">Agent Copy – Text Booster</div>
           <p class="card-desc">
-            Améliore un texte existant pour le rendre plus clair, plus percutant
-            et plus orienté conversion.
+            Agent copywriter : il améliore un texte existant pour le rendre plus clair,
+            plus percutant et plus orienté conversion.
           </p>
           <a href="/text-booster-ia" class="card-cta">
-            <span>Booster un texte</span>
+            <span>Activer l’Agent Copy</span>
             <span class="arrow">↗</span>
           </a>
         </article>
 
         <article class="card card-content">
           <div class="card-cat">PAGES DE VENTE</div>
-          <div class="card-title">Landing Page IA</div>
+          <div class="card-title">Agent Landing – Architecte de Page</div>
           <p class="card-desc">
-            Génère la structure complète d’une landing page (sections, angles, CTA)
-            à partir de ton offre, ton audience et ta promesse.
+            Agent architecte : il génère la structure complète d’une landing page
+            (sections, angles, CTA) à partir de ton offre, ton audience et ta promesse.
           </p>
           <a href="/landing-page-ia" class="card-cta">
-            <span>Générer ma landing</span>
+            <span>Activer l’Agent Landing</span>
             <span class="arrow">↗</span>
           </a>
         </article>
 
         <article class="card card-diagnostic">
           <div class="card-cat">OFFRE</div>
-          <div class="card-title">Diagnostic d’Offre</div>
+          <div class="card-title">Agent Offre – Diagnostic Express</div>
           <p class="card-desc">
-            Vérifie si ton offre est claire, crédible et vendable, puis propose des
-            améliorations concrètes d’angle et de message.
+            Agent stratégique offre : il vérifie si ton offre est claire, crédible
+            et vendable, puis propose des améliorations concrètes d’angle et de message.
           </p>
           <a href="/diagnostic-offre" class="card-cta">
-            <span>Analyser mon offre</span>
+            <span>Activer l’Agent Offre</span>
             <span class="arrow">↗</span>
           </a>
         </article>
 
         <article class="card card-content">
           <div class="card-cat">EMAIL</div>
-          <div class="card-title">Optimiseur d’Emails</div>
+          <div class="card-title">Agent Email – Optimiseur</div>
           <p class="card-desc">
-            Optimise un email (cold, relance, nurturing, promo) avec sujet, structure
-            et formulation orientés réponse ou clic.
+            Agent email marketing : il optimise un email (cold, relance, nurturing, promo)
+            avec sujet, structure et formulation orientés réponse ou clic.
           </p>
           <a href="/optimiseur-email" class="card-cta">
-            <span>Optimiser mon email</span>
+            <span>Activer l’Agent Email</span>
             <span class="arrow">↗</span>
           </a>
         </article>
 
         <article class="card card-content">
           <div class="card-cat">WEBINAIRES</div>
-          <div class="card-title">Coach Webinaire IA</div>
+          <div class="card-title">Agent Webinaire – Coach IA</div>
           <p class="card-desc">
-            Produit le plan complet d’un webinaire de vente adapté à ton audience
-            et à ton offre.
+            Agent présentateur : il produit le plan complet d’un webinaire de vente
+            adapté à ton audience et à ton offre.
           </p>
           <a href="/coach-webinaire" class="card-cta">
-            <span>Préparer mon webinaire</span>
+            <span>Activer l’Agent Webinaire</span>
             <span class="arrow">↗</span>
           </a>
         </article>
 
         <article class="card card-content">
           <div class="card-cat">RÉSEAUX SOCIAUX</div>
-          <div class="card-title">Optimiseur Réseaux Courts</div>
+          <div class="card-title">Agent Shorts – Optimiseur Réseaux Courts</div>
           <p class="card-desc">
-            Génère des scripts pour Reels, TikTok ou Shorts, selon ta niche, ton style
-            et ta plateforme principale.
+            Agent vidéos courtes : il génère des scripts pour Reels, TikTok ou Shorts,
+            selon ta niche, ton style et ta plateforme principale.
           </p>
           <a href="/optimiseur-reseaux-courts" class="card-cta">
-            <span>Générer des scripts courts</span>
+            <span>Activer l’Agent Shorts</span>
             <span class="arrow">↗</span>
           </a>
         </article>
 
         <article class="card card-pricing">
           <div class="card-cat">PRICING</div>
-          <div class="card-title">Coach Prix & Offres</div>
+          <div class="card-title">Agent Pricing – Coach Prix & Offres</div>
           <p class="card-desc">
-            Revoit ta grille d’offres et tes prix pour aligner valeur perçue, marges
-            et niveau de ton marché.
+            Agent pricing : il revoit ta grille d’offres et tes prix pour aligner
+            valeur perçue, marges et niveau de ton marché.
           </p>
           <a href="/coach-prix-offres" class="card-cta">
-            <span>Clarifier mes offres</span>
+            <span>Activer l’Agent Pricing</span>
             <span class="arrow">↗</span>
           </a>
         </article>
 
         <article class="card card-diagnostic">
           <div class="card-cat">PUBS</div>
-          <div class="card-title">Diagnostic Funnel Ads</div>
+          <div class="card-title">Agent Ads Doctor – Diagnostic Funnel</div>
           <p class="card-desc">
-            Analyse ton couple ads + landing pour comprendre où ça bloque
-            (clics, leads, ventes) et quoi tester ensuite.
+            Agent médecin de tes pubs : il analyse ton couple ads + landing pour comprendre
+            où ça bloque (clics, leads, ventes) et quoi tester ensuite.
           </p>
           <a href="/diagnostic-funnel-ads" class="card-cta">
-            <span>Diagnostiquer mes ads</span>
+            <span>Activer l’Agent Ads Doctor</span>
             <span class="arrow">↗</span>
           </a>
         </article>
 
         <article class="card card-kpi">
           <div class="card-cat">CRM & PIPELINE</div>
-          <div class="card-title">Assistant Sales CRM</div>
+          <div class="card-title">Agent CRM – Assistant Pipeline</div>
           <p class="card-desc">
-            Propose une structure simple de pipeline, colonnes, tags et routine
-            quotidienne pour ne plus laisser de deals tomber.
+            Agent organisation ventes : il propose une structure simple de pipeline,
+            colonnes, tags et routine quotidienne pour ne plus laisser de deals tomber.
           </p>
           <a href="/assistant-sales-crm" class="card-cta">
-            <span>Structurer mon pipeline</span>
+            <span>Activer l’Agent CRM</span>
             <span class="arrow">↗</span>
           </a>
         </article>
 
         <article class="card card-strategy">
           <div class="card-cat">ARGUMENTAIRE</div>
-          <div class="card-title">Créateur d’Arguments de Valeur</div>
+          <div class="card-title">Agent Valeur – Créateur d’Arguments</div>
           <p class="card-desc">
-            Liste les bénéfices concrets de ton offre à partir des problèmes, désirs
-            et résultats ciblés de ton audience.
+            Agent argumentaire : il liste les bénéfices concrets de ton offre à partir
+            des problèmes, désirs et résultats ciblés de ton audience.
           </p>
           <a href="/createur-arguments-valeur" class="card-cta">
-            <span>Lister mes arguments</span>
+            <span>Activer l’Agent Valeur</span>
             <span class="arrow">↗</span>
           </a>
         </article>
 
         <article class="card card-strategy">
           <div class="card-cat">STRATÉGIE</div>
-          <div class="card-title">Analyse Concurrents IA</div>
+          <div class="card-title">Agent Radar – Analyse Concurrents</div>
           <p class="card-desc">
-            Compare-toi à quelques concurrents et récupère des angles de positionnement
-            pour vraiment te différencier.
+            Agent veille marché : il te compare à quelques concurrents et te propose
+            des angles de positionnement pour vraiment te différencier.
           </p>
           <a href="/analyse-concurrents" class="card-cta">
-            <span>Analyser mes concurrents</span>
+            <span>Activer l’Agent Radar</span>
             <span class="arrow">↗</span>
           </a>
         </article>
