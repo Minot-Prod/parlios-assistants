@@ -1,0 +1,46 @@
+
+/* === HERO PARLIOS === */
+
+
+/* === HERO PARLIOS === */
+.hero-parlios {
+    width: 100%;
+    padding: 120px 0;
+    background: linear-gradient(135deg, #0a0f24 0%, #111b42 50%, #0a0f24 100%);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero-parlios h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #4ac7ff, #8a7bff, #d66bff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-parlios p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+.hero-parlios .cta-btn {
+    margin-top: 30px;
+    padding: 14px 32px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    background: #6c5ce7;
+    color: white;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.hero-parlios .cta-btn:hover {
+    background: #8b75ff;
+    transform: translateY(-2px);
+}
+
